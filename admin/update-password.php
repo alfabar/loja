@@ -65,6 +65,31 @@
             if($new_password==$confirm_password)
             {
                 //Atualiza nova senha
+                //echo "Senha atualizada com sucesso";
+                $sql2 = "UPDATE tbl_admin SET
+                   password='$new_password'
+                   WHERE id=$id               
+                ";
+                //executar a Query
+                $res2 = mysqli_query($conn, $sql2);
+                //Checar se a query foi consultada ou não
+                if($res2==true)
+                {
+                    //mostrar mensagen de sucesso
+                    //Redireciona para Pagina do adm
+                    $_SESSION['change-pwd'] = "<div class='success'>Senhas Alterada com sucesso</div>";
+                    //Redirecionar o usuario
+                    header('location:'.SITEURL.'admin/manage-admin.php');
+                    
+                }
+                else
+                {
+                    //mostar mensagen de erro
+                    $_SESSION['change-pwd'] = "<div class='error'>Senhas não alteradas</div>";
+                    //Redirecionar o usuario
+                    header('location:'.SITEURL.'admin/manage-admin.php');
+
+                }
             }
             else
             {
