@@ -12,6 +12,14 @@
       echo $_SESSION['add']; // Mostrando a mensagen de sessão
       unset($_SESSION['add']); // Removendo mensagem de sessão
     }
+
+    if(isset($_SESSION['delete']))
+
+      {
+        echo $_SESSION['delete'];
+        unset($_SESSION['delete']);
+      }
+
     ;?>
     <!-- Botão do administrador -->
     <a class="btn-primary" href="add-admin.php">Adicionar Adm</a>
@@ -26,7 +34,7 @@
       </tr>
       <?php 
 
-        //Query to get all admin
+        // Consulta para obter todos os administradores
       $sql = "SELECT * FROM tbl_admin";
         // executando a query
       $res = mysqli_query($conn, $sql);
@@ -42,7 +50,7 @@
         // verifique o número de linhas
         if($count>0)
         {
-        // we have data in database
+       // temos dados no banco de dados
          while($rows=mysqli_fetch_assoc($res))
           {
             // usando o loop while para obter os dados do banco de dados
@@ -60,7 +68,7 @@
         <td><?php echo $full_name;?></td>
         <td><?php echo $username;?></td>
         <td> <a class="btn-secundary" href="">Atualizar</a>
-          <a class="btn-danger" href="">delete admin</a></td>
+          <a class="btn-danger" href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>">delete admin</a></td>
       </tr>
             <?php
           }
@@ -71,7 +79,7 @@
         }
         else
         {
-         // we do not have data in database
+         // não temos dados no banco de dados
         }
       }
       
