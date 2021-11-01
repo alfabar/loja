@@ -16,12 +16,26 @@
       echo $_SESSION['delete'];
       unset($_SESSION['delete']);
     } 
-    
+    // Sessão para atualizar usuario
     if (isset($_SESSION['update']))
     {
       echo $_SESSION['update'];
       unset($_SESSION['update']);
     }
+    // Sessão para troca usuario não encontrado
+    if(isset($_SESSION['user-not-found']))
+    {
+      echo $_SESSION['user-not-found'];
+      unset($_SESSION['user-not-found']);
+    }
+    //Sessão para troca de senha não encontrada
+    if(isset($_SESSION['pwd-not-match']))
+    {
+      echo $_SESSION['pwd-not-match'];
+      unset($_SESSION['pwd-not-match']);
+    }
+
+
     ?>
     <!-- Botão do administrador -->
     <a class="btn-primary" href="add-admin.php">Adicionar Adm</a>
@@ -66,7 +80,9 @@
               <td><?php echo $sn++; ?></td>
               <td><?php echo $full_name; ?></td>
               <td><?php echo $username; ?></td>
-              <td> <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>">Atualizar</a>
+              <td> 
+              <a class="btn-primary" href="<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id; ?>">Trocar senha</a>
+                <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>">Atualizar</a>
                 <a class="btn-danger" href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>">delete admin</a>
               </td>
             </tr>
