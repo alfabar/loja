@@ -67,7 +67,7 @@ if (isset($_POST['submit'])) {
     // echo " botão clicado";
     // Obter todos os valores au atualizar
     $id = $_POST['id'];
-    $full_name = $_POST['full-name'];
+    $full_name = $_POST['full_name'];
     $username = $_POST['username'];
 
     //Criar uma consulta sql para atualizar admin
