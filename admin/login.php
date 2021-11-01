@@ -1,3 +1,4 @@
+<?php include('../config/constants.php');?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -19,6 +20,13 @@
         
         <div class="login">
             <h1 class="text-center">Login</h1>
+            <?php 
+            if(isset($_SESSION['login']))
+            {
+                echo $_SESSION['login'];
+                unset($_SESSION['login']);
+            }           
+            ?>
             <!-- Formulario de Login aqui -->
             <form class="text-center" action="" method="POST">
                 <label for="username">Usuário:</label>
@@ -35,3 +43,46 @@
         <script src="" async defer></script>
     </body>
 </html>
+<?php
+//checar se o botão submit foi clicado
+
+if(isset($_POST['submit']))
+{
+    //processar para o login
+    //1º Obter dados do form para login
+    $username = $_POST['username'];
+    $password = md5($_POST['password']);
+
+
+    //2º criar consulta SQL que verifica se nome e usuario existe
+    $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
+
+    // 3º Executar a Query
+    $res = mysqli_query($conn, $sql);
+
+
+    //4º Contagem que checa se o usuario existe ou não
+    $count = mysqli_num_rows($res);
+
+    if($count==1)
+    {
+        //Usuario disponivel
+        $_SESSION['login'] = "<div class='success'>Login com sucesso</div>";
+        //redirecionar para o painel administrador
+        header('location:'.SITEURL.'admin/');
+    }
+    else
+    {
+        //usuario falhou
+         $_SESSION['login'] = "<div class='error'>Login não efetuado confira dados</div>";
+         //redirecionar para o painel administrador
+         header('location:'.SITEURL.'admin/login.php');
+    }
+    
+
+
+}
+
+
+?>
+
