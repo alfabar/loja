@@ -139,3 +139,13 @@ table tr td {
     background-color: #ff4757;
     color: white;
 }
+
+
+/* css tela de login */
+
+.login {
+    width: 20%;
+    border: 1px solid grey;
+    margin: 10% auto;
+    padding: 1%;
+}
