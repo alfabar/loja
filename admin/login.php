@@ -25,6 +25,11 @@
             {
                 echo $_SESSION['login'];
                 unset($_SESSION['login']);
+            }
+            if(isset($_SESSION['no-login-message']))
+            {
+                echo $_SESSION['no-login-message'];
+                unset($_SESSION['no-login-message']);
             }           
             ?>
             <!-- Formulario de Login aqui -->
@@ -68,6 +73,7 @@ if(isset($_POST['submit']))
     {
         //Usuario disponivel
         $_SESSION['login'] = "<div class='success'>Login com sucesso</div>";
+        $_SESSION['user'] = $username; // para verificar se o usuario esta conectado
         //redirecionar para o painel administrador
         header('location:'.SITEURL.'admin/');
     }

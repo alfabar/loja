@@ -1,4 +1,12 @@
-<?php include('../config/constants.php');?>
+<?php 
+
+include('../config/constants.php');
+include('login-check.php');
+
+
+?>
+
+
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -32,7 +40,7 @@
              <li> <a href="manage-category.php">Categoria</a> </li>
              <li> <a href="manage-food.php">Cardapio</a> </li>
              <li> <a href="manage-order.php">Pedido</a> </li>
-             <li> <a href="manage-order.php">Sair</a> </li>
+             <li> <a href="logout.php">Sair</a> </li>
          </ul>
      </div>
 
