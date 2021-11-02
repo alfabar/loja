@@ -18,33 +18,98 @@
     <table class="tbl-full">
       <tr>
         <th>S.N.</th>
-        <th>Nome completo</th>
-        <th>Usuario</th>
-        <th>Ações</th>
+        <th>Titulo </th>
+        <th>Imagen</th>
+        <th>Feature</th>
+        <th>Ativo</th>
+        <th>Action</th>
       </tr>
-      <tr>
-        <td>1.</td>
-        <td>Adriano Baram</td>
-        <td>alfa_bar</td>
-        <td> <a class="btn-secundary" href="">Atualizar</a>
-          <a class="btn-danger" href="">delete admin</a></td>
-      </tr>
-      <tr>
-        <td>2.</td>
-        <td>Adriano Baram</td>
-        <td>alfa_bar</td>
-        <td> <a class="btn-secundary" href="">Atualizar</a>
-          <a class="btn-danger" href="">delete admin</a></td>
-      </tr>
-      <tr>
-        <td>3.</td>
-        <td>Adriano Baram</td>
-        <td>alfa_bar</td>
-        <td> 
-          <a class="btn-secundary" href="">Atualizar</a>
-          <a class="btn-danger" href="">delete admin</a>
-        </td>
-      </tr>
+      <?php
+
+      //Query que consulta para obter dados da tabela categoria
+      $sql = "SELECT * FROM tbl_category";
+
+      // Comandos para Executar a consulta Query
+      $res = mysqli_query($conn, $sql);
+
+      // comando para contar as tabelas do banco de dados
+      $count = mysqli_num_rows($res);
+
+      //Criar numero de serial variavel
+      $sn=1;
+
+      //Vamos verificar se temos ou não os dados de consulta
+      if($count>0)
+      {
+        // Dados encontrado
+        // Obter dados e disponibilizar
+        while($row=mysqli_fetch_assoc($res))
+        {
+          $id = $row['id'];
+          $title = $row['title'];
+          $image_name = $row['image_name'];
+          $featured = $row['featured'];
+          $active = $row['active'];
+
+          ?>
+          <tr>
+            <td><?php echo $sn++; ?></td>
+            <td><?php echo $title; ?></td>
+            <td><?php 
+            if ($image_name!="")
+            {
+              //mostrar a imagem
+              ?>
+              <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" width="50px" alt="" srcset="">
+
+
+
+              <?php
+
+            }
+            else
+            {
+
+
+              echo "<div class='error'>Não há imagem adicionada</div>";
+            }
+            
+            
+            
+            
+            
+            
+            ?></td>
+            <td><?php echo $featured; ?></td>
+            <td><?php echo $active; ?></td>
+            <td> 
+              <a class="btn-secundary" href="">Atualizar</a>
+              <a class="btn-danger" href="">Excluir</a>
+            </td>
+          </tr>
+          <?php
+        }
+
+      }
+      else
+      {
+        //Dados não encontrado
+        //Mostrar a mensagem dentro da tabela
+        ?>
+        <tr>
+          <td colspan="6">
+            <div class="error">Nenhuma categoria Adicionada</div>
+          </td>
+        </tr>
+
+        <?php
+
+      }
+
+
+
+
+      ?>           
     </table>
 </div>
 
