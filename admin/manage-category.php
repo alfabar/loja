@@ -3,8 +3,16 @@
 
 <div class="wrapper">
     <h1>Manage Category</h1>
+    <?php        
+        if(isset($_SESSION['add']))
+        {
+            echo $_SESSION['add'];
+            unset($_SESSION['add']);
+        }        
+        ?>
+
       <!-- Botão do administrador -->
-      <a class="btn-primary" href="">Adicionar Categoria</a>
+      <a class="btn-primary" href="<?php echo SITEURL; ?>admin/add-category.php">Adicionar Categoria</a>
     <br>
 
     <table class="tbl-full">
