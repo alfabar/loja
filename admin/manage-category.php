@@ -2,7 +2,7 @@
 <div class="main-content">
 
 <div class="wrapper">
-    <h1>Manage Category</h1>
+    <h1>Gerenciar Categoria</h1><br><br>
     <?php        
         if(isset($_SESSION['add']))
         {
@@ -20,6 +20,18 @@
           echo $_SESSION['delete'];
           unset($_SESSION['delete']);
         }
+        if(isset($_SESSION['no-category-found']))
+        {
+          echo $_SESSION['no-category-found'];
+          unset($_SESSION['no-category-found']);
+        }
+        if(isset($_SESSION['update']))
+        {
+          echo $_SESSION['update'];
+          unset($_SESSION['update']);
+        }
+
+
         ?>
 
       <!-- Botão do administrador -->
@@ -94,8 +106,8 @@
             <td><?php echo $featured; ?></td>
             <td><?php echo $active; ?></td>
             <td> 
-              <a class="btn-secundary" href="">Atualizar</a>
-              <a class="btn-danger" href="<?php echo SITEURL;?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>">Excluir</a>
+              <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>">Atualizar</a>
+              <a class="btn-danger" href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>">Excluir</a>
             </td>
           </tr>
           <?php

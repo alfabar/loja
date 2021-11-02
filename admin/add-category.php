@@ -34,9 +34,9 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="feature">Destaque: </label>
-                        <input type="radio" name="feature" value="Yes"> Sim
-                        <input type="radio" name="feature" value="No"> Não
+                        <label for="featured">Destaque: </label>
+                        <input type="radio" name="featured" value="Yes"> Sim
+                        <input type="radio" name="featured" value="No"> Não
                     </td>
                 </tr>
                 <tr>
@@ -67,7 +67,7 @@
 
             //Para os botoes radio e preciso se selecionado ou não
 
-            if(isset($_POST['feature']))
+            if(isset($_POST['featured']))
             {
                 //Obter valores do formulario
                 $feature = $_POST['featured'];
@@ -97,6 +97,10 @@
                 //Para fazer o upload da imagem precisamos do nome, o caminho de origem e caminho de destino
                 $image_name = $_FILES['image']['name'];
                 
+
+                // Upload da imagem somente se selecionada
+                if($image_name != "")
+                {                
                 //Auto renomear a imagem
                 //obter a extenção da imagem (jpg, png, gif, etc) e.g "food1.jpg"
 
@@ -126,7 +130,7 @@
                     die();
                 }
 
-
+                }
             }
             else
             {
