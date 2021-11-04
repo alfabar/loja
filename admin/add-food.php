@@ -90,8 +90,8 @@
         <tr>
             <td>Destaque:</td>
             <td>
-                <input type="radio" name="featured" value="Yes"> Sim
-                <input type="radio" name="featured" value="No"> Não
+                <input type="radio" name="feature" value="Yes"> Sim
+                <input type="radio" name="feature" value="No"> Não
             </td>
         </tr>
         <tr>
@@ -121,13 +121,13 @@
       $category = $_POST['category'];
 
       // Verificar se o botão Radio dos Destaque está clicado ne não manter padrão
-      if(isset($_POST['featured']))
+      if(isset($_POST['feature']))
       {
-          $featured = $_POST['featured'];
+          $feature = $_POST['feature'];
       }
       else
       {
-          $featured = "No";
+          $feature = "No";
       }
       if(isset($_POST['active']))
       {
@@ -200,15 +200,14 @@
       price = $price,
       image_name = '$image_name',
       category_id = $category,
-      featured = '$featured',
+      feature = '$',
       active = '$active'      
       ";
-
       //Executar a consulta ao banco
-      $res2 = mysqli_query($conn, $sql);
+      $res2 = mysqli_query($conn, $sql2);
 
       //4º Apos completar redirecionar pagina de pedidos
-      if ($res2 == true)
+      if($res2==true)
       {
           // Dados inseridos com sucesso
           $_SESSION['add'] = "<div class='success'>Produto adicionado com sucesso</div>";
@@ -219,15 +218,10 @@
           //Falhou ao inserir dados
           $_SESSION['add'] = "<div class='error'>Falhou ao adicionar produto</div>";
           header('location:'.SITEURL.'admin/manage-food.php');
-      }     
+      }    
 
-  }
-  
-    ?>
-
-
-    
+  }  
+    ?>    
     </div>
 </div>
-
 <?php include('partials/footer.php'); ?>

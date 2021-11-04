@@ -18,33 +18,76 @@
     <table class="tbl-full">
       <tr>
         <th>S.N.</th>
-        <th>Nome completo</th>
-        <th>Usuario</th>
-        <th>Ações</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>imagem</th>
+        <th>destaque</th>
+        <th>Ativo</th>
+        <th>Acões</th>
       </tr>
-      <tr>
-        <td>1.</td>
-        <td>Adriano Baram</td>
-        <td>alfa_bar</td>
-        <td> <a class="btn-secundary" href="">Atualizar</a>
-          <a class="btn-danger" href="">delete admin</a></td>
-      </tr>
-      <tr>
-        <td>2.</td>
-        <td>Adriano Baram</td>
-        <td>alfa_bar</td>
-        <td> <a class="btn-secundary" href="">Atualizar</a>
-          <a class="btn-danger" href="">delete admin</a></td>
-      </tr>
-      <tr>
-        <td>3.</td>
-        <td>Adriano Baram</td>
-        <td>alfa_bar</td>
-        <td> 
-          <a class="btn-secundary" href="">Atualizar</a>
-          <a class="btn-danger" href="">delete admin</a>
-        </td>
-      </tr>
+      <?php 
+
+      //Criar uma consulta sql para exibir dados na tabela
+      $sql = "SELECT * FROM tbl_food";
+
+      // executar a consulta query    
+      $res = mysqli_query($conn, $sql);
+
+      //Contar as colunas checada na tabela comida
+      $count = mysqli_num_rows($res);
+
+      //criar um numero de serie 
+      $sn=1;
+
+      if($count>0)
+      {
+        // dados encontrado da tabela comida/food
+        while($row=mysqli_fetch_assoc($res))
+        {
+          $id = $row['id'];
+          $title = $row['title'];
+          $price = $row['price'];
+          $image_name = $row['image_name'];
+          $feature = $row['feature'];
+          $active = $row['active'];
+          ?>
+          <tr>
+            <td><?php echo $sn++; ?></td>
+            <td><?php echo $title; ?></td>
+            <td><?php echo $price; ?></td>
+            <td><?php 
+            //
+            if($image_name=="")
+            {
+              echo "<div class='error'>Imagem não adicionada</div>";
+            }
+            else
+            {
+              // imagem mostrar
+              ?>
+              <img src="<?php echo SITEURL; ?>images/produtos/<?php echo $image_name; ?>" width="50">
+
+              <?php
+            }
+            
+            ?></td>
+            <td><?php echo $feature; ?></td>
+            <td><?php echo $active; ?></td>
+            <td> 
+              <a class="btn-secundary" href="">Atualizar</a>
+              <a class="btn-danger" href="">delete admin</a></td>
+          </tr>
+          <?php
+        }
+
+      }
+      else
+      {
+        // comida não adicionada
+        echo "<tr><td colspan='7' class='error'> Comida não adicionada</td></tr>";
+      }
+
+      ?>            
     </table>
 </div>
 
