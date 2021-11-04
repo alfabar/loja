@@ -6,6 +6,14 @@
       <!-- Botão do administrador -->
       <a class="btn-primary" href="<?php echo SITEURL; ?>admin/add-food.php">Adicionar Comida</a>
     <br>
+    <?php 
+    if(isset($_SESSION['add']))
+    {
+      echo $_SESSION['add'];
+      unset($_SESSION['add']);
+    }
+
+    ?>
 
     <table class="tbl-full">
       <tr>
