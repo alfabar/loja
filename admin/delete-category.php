@@ -4,15 +4,15 @@ include('../config/constants.php');
 // Checar se o valor do id e valor nome estão configurados
 if(isset($_GET['id']) AND isset($_GET['image_name']))
 {
+
     //obter o valor e deletar
     echo "Obter valor e deletar ";
-    $id =$_GET['id'];
+    $id = $_GET['id'];
     $image_name = $_GET['image_name'];
 
     // Remover as imagens fisicamente 
     if($image_name !="")
-    {
-        //imagem disponivel então remova
+    {   //imagem disponivel então remova
         $path = "../images/category/".$image_name;
         //remover a imagem
         $remove = unlink($path);

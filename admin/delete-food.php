@@ -2,17 +2,16 @@
 include('../config/constants.php');
 
 //echo "Deletar comiga do banco"
-if(isset($_GET['id']) && isset($_GET['image_name']))// pode ser usado tanto && quanto AND
+if(isset($_GET['id']) AND isset($_GET['image_name']))// pode ser usado tanto && quanto AND
 
-{
-    //processo que deleta
+{    //processo que deleta
     //echo "processa e exclui";
     //1º obter o id da imagem e nome
     $id = $_GET['id'];
-    $image_name['image_name'];   
+    $image_name = $_GET['image_name'];   
 
     //2º remover a imagem se tiver disponivel
-    if ($image_name != "")
+    if($image_name !="")
     {
         $path = "../images/produtos/".$image_name;
         //Remover imagem 
@@ -20,7 +19,7 @@ if(isset($_GET['id']) && isset($_GET['image_name']))// pode ser usado tanto && q
         $remove = unlink($path);
 
         //checar se a imagem foi removida ou não
-        if ($remove==false)
+        if($remove==false)
         {
             //falhou ao remover imagem
             $_SESSION['upload'] = "<div class='error'>Falha ao remover a imagem</div>";
@@ -30,11 +29,7 @@ if(isset($_GET['id']) && isset($_GET['image_name']))// pode ser usado tanto && q
 
             //Parar o processo de deletar
             die();
-        }
-        else
-        {
-            //
-        }
+        }       
     }
 
     //3º deletar produto do banco de dados
