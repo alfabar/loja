@@ -66,24 +66,17 @@
 
 
                             <?php
-
                         }
                     }
                     else
                     {
                         // não existe categoria
                         ?>
-
                         <option value="0">Nenhuma categoria</option>
                         <?php
                     }
-
-
-
                     // 2º visualizar no dropdown
-
-                    ?>                    
-
+                    ?> 
                 </select>
             </td>
         </tr>
@@ -109,7 +102,6 @@
     </table>   
     </form>
     <?php
-
     // checar se o botão foi clicado ou não
   if(isset($_POST['submit']))
   {
@@ -137,10 +129,7 @@
       {
           $active = "No";
       }
-
-
       //2º atualizar imagens no banco de dados
-
       //Verificar se a imagem selecionada esta clicada
       if(isset($_FILES['image']['name']))
       {
@@ -182,7 +171,6 @@
                   die();
               }
           }
-
       }
       else
       {
@@ -218,8 +206,7 @@
           //Falhou ao inserir dados
           $_SESSION['add'] = "<div class='error'>Falhou ao adicionar produto</div>";
           header('location:'.SITEURL.'admin/manage-food.php');
-      }    
-
+      }
   }  
     ?>    
     </div>

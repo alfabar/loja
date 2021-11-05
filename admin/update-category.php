@@ -166,10 +166,7 @@
                             header('location:'.SITEURL.'admin/manage-category.php');
                             die();
                         }
-                    }
-
-
-                    
+                    }                   
 
                 }
                 else
