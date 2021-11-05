@@ -12,6 +12,21 @@
       echo $_SESSION['add'];
       unset($_SESSION['add']);
     }
+    if(isset($_SESSION['delete']))
+    {
+      echo $_SESSION['delete'];
+      unset($_SESSION['delete']);
+    }
+    if(isset($_SESSION['upload']))
+    {
+      echo $_SESSION['upload'];
+      unset($_SESSION['upload']);
+    }
+    if(isset($_SESSION['unauthorized']))
+    {
+      echo $_SESSION['unauthorized'];
+      unset($_SESSION['unauthorized']);
+    }
 
     ?>
 
@@ -75,7 +90,7 @@
             <td><?php echo $active; ?></td>
             <td> 
               <a class="btn-secundary" href="">Atualizar</a>
-              <a class="btn-danger" href="">delete admin</a></td>
+              <a class="btn-danger" href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>">Excluir</a></td>
           </tr>
           <?php
         }
