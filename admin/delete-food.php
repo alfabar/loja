@@ -23,7 +23,7 @@ if(isset($_GET['id']) && isset($_GET['image_name']))// pode ser usado tanto && q
         if ($remove==false)
         {
             //falhou ao remover imagem
-            $_SESSION['upload'] = "<div class='error'>Falha ao carregar imagem</div>";
+            $_SESSION['upload'] = "<div class='error'>Falha ao remover a imagem</div>";
 
             //redirecionar pagina painel produtos
             header('location:'.SITEURL.'admin/manage-food.php');
