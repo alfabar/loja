@@ -145,7 +145,7 @@
 
 
               //Criar novo nome para as imagen subidas 
-              $image_name = "Comida-Site-".rand(0000,9999).".".$ext;
+              $image_name = "Produto-site-".rand(0000,9999).".".$ext;
 
               // B. Fazer Upload
               // obter o caminho de origem da imagem
@@ -188,7 +188,7 @@
       price = $price,
       image_name = '$image_name',
       category_id = $category,
-      feature = '$',
+      feature = '$feature',
       active = '$active'      
       ";
       //Executar a consulta ao banco
