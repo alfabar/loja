@@ -188,6 +188,7 @@
 
 
                     }
+                     //3º Remover a imagem se uma nova fou carregada
                     // B.Remove a imagem atual
                     if($current_image!="")
                     {
@@ -218,10 +219,38 @@
             //2º enviar imagem selecionada
 
 
-            //3º Remover a imagem se uma nova fou carregada 
+            
 
             
             //4º Atualizar banco de dados 
+            $sql3 = "UPDATE tbl_food SET
+               title = '$title',
+               description = '$description',
+               price = $price,
+               image_name = '$image_name',
+               category_id = '$category',
+               feature = '$feature',
+               active = '$active'
+               WHERE id=$id           
+            ";
+
+            //Executar consulta query
+            $res3 = mysqli_query($conn, $sql3);
+
+            //Checar se a query foi verificada ou não
+
+            if($res3==true)
+            {
+                //query executada
+                $_SESSION['update'] = "<div class='success'>Produto atualizado com sucesso</div>";
+                header('location:'.SITEURL.'admin/manage-food.php');
+            }
+            else
+            {
+                //Falhou ao carregar imagem
+                $_SESSION['update'] = "<div class='error'>Erro ao atualizar</div>";
+                header('location:'.SITEURL.'admin/manage-food.php');
+            }
 
             
             //redirecionar
