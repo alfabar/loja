@@ -27,10 +27,10 @@
                         <a href="<?php echo SITEURL; ?>">Home</a>
                     </li>
                     <li>
-                        <a href="<?php echo SITEURL; ?>categories.php">Categorias</a>
+                        <a href="<?php echo SITEURL; ?>categorias.php">Categorias</a>
                     </li>
                     <li>
-                        <a href="<?php echo SITEURL; ?>food.php">Pratos</a>
+                        <a href="<?php echo SITEURL; ?>produto.php">Pratos</a>
                     </li>
                     <li>
                         <a href="<?php echo SITEURL; ?>">Contato</a>

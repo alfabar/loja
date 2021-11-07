@@ -47,11 +47,8 @@
             {
                 //Categoria não adicionada
                 echo " <div class='error'>Category não adicionada</div>";
-            }                      
-            
-            
-            ?> 
-
+            }            
+            ?>
             <a href="category-foods.html">
             <div class="box-3 float-container">
                 <img src="images/pizza.jpg" alt="Pizza" class="img-responsive img-curve">
@@ -59,9 +56,6 @@
                 <h3 class="float-text text-white">Pizza</h3>
             </div>
             </a>
-
-            
-
             <div class="clearfix"></div>
         </div>
     </section>
@@ -173,12 +167,7 @@
                     <a href="#" class="btn btn-primary">Order Now</a>
                 </div>
             </div>
-
-
             <div class="clearfix"></div>
-
-            
-
         </div>
 
         <p class="text-center">
