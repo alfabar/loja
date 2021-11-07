@@ -2,13 +2,11 @@
 
     <!-- fOOD sEARCH Section Starts Here -->
     <section class="food-search text-center">
-        <div class="container">
-            
+        <div class="container">            
             <form action="food-search.html" method="POST">
                 <input type="search" name="search" placeholder="Search for Food.." required>
                 <input type="submit" name="submit" value="Search" class="btn btn-primary">
             </form>
-
         </div>
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
@@ -18,6 +16,42 @@
         <div class="container">
             <h2 class="text-center">Explore Foods</h2>
 
+            <?php 
+            //criar uma consulta sql para mostrar os dados da categoria
+            $sql = "SELECT * FROM tbl_category";
+
+            // Execute a Query
+            $res = mysqli_query($conn, $sql);
+
+
+            //Contar o numero de colunas a serem exibidas
+            $count = mysqli_num_rows($res);
+
+
+
+
+
+            if($count>0)
+            {
+
+                // Categoria disponivel
+                while($row=mysqli_fetch_assoc($res))
+                {                    
+                    //Obter os valores
+                    $id = $row['id'];
+                    $title = $row['title'];
+
+                }
+            }
+            else
+            {
+                //Categoria não adicionada
+                echo " <div class='error'>Category não adicionada</div>";
+            }                      
+            
+            
+            ?> 
+
             <a href="category-foods.html">
             <div class="box-3 float-container">
                 <img src="images/pizza.jpg" alt="Pizza" class="img-responsive img-curve">
@@ -26,21 +60,7 @@
             </div>
             </a>
 
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/burger.jpg" alt="Burger" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Burger</h3>
-            </div>
-            </a>
-
-            <a href="#">
-            <div class="box-3 float-container">
-                <img src="images/momo.jpg" alt="Momo" class="img-responsive img-curve">
-
-                <h3 class="float-text text-white">Momo</h3>
-            </div>
-            </a>
+            
 
             <div class="clearfix"></div>
         </div>

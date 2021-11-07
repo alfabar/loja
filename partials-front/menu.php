@@ -1,3 +1,4 @@
+<?php include('config/constants.php'); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,16 +24,16 @@
             <div class="menu text-right">
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="<?php echo SITEURL; ?>">Home</a>
                     </li>
                     <li>
-                        <a href="categories.html">Categories</a>
+                        <a href="<?php echo SITEURL; ?>categories.php">Categories</a>
                     </li>
                     <li>
-                        <a href="foods.html">Foods</a>
+                        <a href="<?php echo SITEURL; ?>food.php">Foods</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="<?php echo SITEURL; ?>">Contact</a>
                     </li>
                 </ul>
             </div>
