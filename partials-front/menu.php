@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <!-- Important to make website responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Website</title>
+    <title>Site de Comida</title>
 
     <!-- Link our CSS file -->
     <link rel="stylesheet" href="css/style.css">
@@ -27,13 +27,13 @@
                         <a href="<?php echo SITEURL; ?>">Home</a>
                     </li>
                     <li>
-                        <a href="<?php echo SITEURL; ?>categories.php">Categories</a>
+                        <a href="<?php echo SITEURL; ?>categories.php">Categorias</a>
                     </li>
                     <li>
-                        <a href="<?php echo SITEURL; ?>food.php">Foods</a>
+                        <a href="<?php echo SITEURL; ?>food.php">Pratos</a>
                     </li>
                     <li>
-                        <a href="<?php echo SITEURL; ?>">Contact</a>
+                        <a href="<?php echo SITEURL; ?>">Contato</a>
                     </li>
                 </ul>
             </div>
