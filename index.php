@@ -14,7 +14,7 @@
     <!-- CAtegories Section Starts Here -->
     <section class="categories">
         <div class="container">
-            <h2 class="text-center">Explore Foods</h2>
+            <h2 class="text-center">Procure </h2>
 
             <?php 
             //criar uma consulta sql para mostrar os dados da categoria
@@ -70,7 +70,7 @@
     <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
         <div class="container">
-            <h2 class="text-center">Food Menu</h2>
+            <h2 class="text-center">Menu de comidas</h2>
 
             <div class="food-menu-box">
                 <div class="food-menu-img">

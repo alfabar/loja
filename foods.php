@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="food-menu-desc">
-                    <h4>Food Title</h4>
+                    <h4>Titulo da comida</h4>
                     <p class="food-price">$2.3</p>
                     <p class="food-detail">
                         Made with Italian Sauce, Chicken, and organice vegetables.
