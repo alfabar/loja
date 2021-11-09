@@ -27,10 +27,6 @@
             //Contar o numero de colunas a serem exibidas
             $count = mysqli_num_rows($res);
 
-
-
-
-
             if($count>0)
             {
 
