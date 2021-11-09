@@ -8,7 +8,7 @@ define('SITEURL', 'http://localhost/loja/');
 define('LOCALHOST','localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'loja');
+define('DB_NAME', 'loja_master');
 
 
 // 3. Executar Query para salvar no banco de dados
