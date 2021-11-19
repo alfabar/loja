@@ -74,6 +74,8 @@
                         }
                         
                         ?>
+                         <label for="image">Selecione a imagem:</label>
+                        <input type="file" name="image">
                     </td>
                 </tr>
                 <tr>
@@ -176,7 +178,7 @@
                     //upload a imagem para a pasta e o banco de dados
                     $upload = move_uploaded_file($src_path, $dest_path);
 
-                    // verificar se a imagem foi upada ou não
+                    // Checar se a imagem foi para servidor sim ou não
                     if($upload==false)
                     {
                         //falhou sessão
@@ -208,18 +210,16 @@
                         }
                     }
                 }
+                else
+                {
+                    $image_name = $current_image;
+                }
             }
             else
             {
                 $image_name = $current_image;
             }
-
-
-
-            //2º enviar imagem selecionada
-
-
-            
+            //2º enviar imagem selecionada           
 
             
             //4º Atualizar banco de dados 
