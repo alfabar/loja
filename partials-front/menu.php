@@ -24,7 +24,7 @@
             <div class="menu text-right">
                 <ul>
                     <li>
-                        <a href="<?php echo SITEURL; ?>">Home</a>
+                        <a href="<?php echo SITEURL; ?>/">Home</a>
                     </li>
                     <li>
                         <a href="<?php echo SITEURL; ?>categorias.php">Categorias</a>
@@ -33,7 +33,7 @@
                         <a href="<?php echo SITEURL; ?>produto.php">Pratos</a>
                     </li>
                     <li>
-                        <a href="<?php echo SITEURL; ?>">Contato</a>
+                        <a href="<?php echo SITEURL; ?>contato.php">Contato</a>
                     </li>
                 </ul>
             </div>
