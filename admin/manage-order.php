@@ -26,7 +26,7 @@
 
       //Obter os dados do banco
 
-      $sql = "SELECT * FROM tbl_order ORDER BY id DESC";/// Visualizando produtos por id orden decrecente
+      $sql = "SELECT * FROM tbl_order ";/// Visualizando ORDER BY id DESC produtos por id orden decrecente há grande necessidade de acertar os detalhes da data 
 
       // Executar a consulta query
 
@@ -69,7 +69,7 @@
           <td><?php echo $custumer_email; ?></td>
           <td><?php echo $custumer_address; ?></td>        
           <td> 
-            <a class="btn-secundary" href="">Atualizar Pedido</a>
+            <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/update-order.php?id=<?php echo $id; ?>">Atualizar Pedido</a>
             </td>
       </tr>
 

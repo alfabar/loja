@@ -118,7 +118,7 @@ else
 
                 $total = $price * $qtd; // Preço total e calculado Preço X QUantidade
 
-                $order_date = date("Y-m-d"); // Data do pedido
+                $order_date = date("Y-m-d h:i:s"); // Data do pedido
 
                 $status = "Ordered"; // Pedido , em entrega , entregue e  cancelado
 
