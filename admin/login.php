@@ -56,7 +56,7 @@ if(isset($_POST['submit']))
     //processar para o login
     //1º Obter dados do form para login
     $username = $_POST['username'];
-    $password = md5($_POST['password']);
+    $password = $_POST['password'];
 
 
     //2º criar consulta SQL que verifica se nome e usuario existe
