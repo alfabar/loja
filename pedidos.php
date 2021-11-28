@@ -112,6 +112,57 @@ else
             if(isset($_POST['submit']))
             {
                 //Obter os Valores do formulario
+                $food = $_POST['food'];
+                $price = $_POST['price'];
+                $qty = $_POST['qty'];
+
+                $total = $price * $qty; // Preço total e calculado Preço X QUantidade
+
+                $order_date = date("Y-m-d h:i:sa"); // Data do pedido
+
+                $status = "Realizado"; // Pedido , em entrega , entregue e  cancelado
+
+
+                $customer_name = $_POST['full-name'];
+                $custumer_contact = $_POST['contact'];
+                $custumer_email = $_POST['email'];
+                $customer_address = $_POST['address'];
+
+
+                //Salvar o pedido no banco de dados 
+
+                $sql2 = "INSERT INTO tbl_order SET
+
+                 food = '$food',
+                 price = $price,
+                 qty = $qty,
+                 total = $total,
+                 order_date = '$order_date',
+                 status = '$status',
+                 customer_name = '$customer_name',
+                 customer_contact = '$customer_contact',
+                 customer_email = '$customer_email',
+                 customer_address = 'customer_address'
+                 ";
+
+                 //Executar a query
+
+                 $res2 = mysqli_query($conn, $sql2);
+
+                 //Checar se foi executada ou não
+
+                 if($res2==true)
+                 {
+                     //Query executada e pedido foi salvo
+                     $_SESSION['order'] = "<div class='success'>Pedido realizado com sucesso</div>";
+                     
+
+                 }
+                 else
+                 {
+                     //falhou ao executar em salvar pedido
+                 }
+
 
             }
             
