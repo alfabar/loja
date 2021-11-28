@@ -10,7 +10,14 @@
     </div>
 </section>
 <!-- fOOD sEARCH Section Ends Here -->
+<?php
+if(isset($_SESSION['order']))
+{
+    echo $_SESSION['order'];
+    unset($_SESSION['order']);
+}
 
+?>
 <!-- CAtegories Section Starts Here -->
 <section class="categories">
     <div class="container">

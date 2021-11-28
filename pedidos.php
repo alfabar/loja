@@ -49,7 +49,7 @@ else
             
             <h2 class="text-center text-white">Fill this form to confirm your order.</h2>
 
-            <form action="#" class="order">
+            <form action="" method="POST" class="order">
                 <fieldset>
                     <legend>Produto Selecionado</legend>
 
@@ -82,7 +82,7 @@ else
                         <input type="hidden" name="price" value="<?php echo $price; ?>">
 
                         <div class="order-label">Quantity</div>
-                        <input type="number" name="qty" class="input-responsive" value="1" required>
+                        <input type="number" name="qtd" class="input-responsive" value="1" required>
                         
                     </div>
 
@@ -114,36 +114,25 @@ else
                 //Obter os Valores do formulario
                 $food = $_POST['food'];
                 $price = $_POST['price'];
-                $qty = $_POST['qty'];
+                $qtd = $_POST['qtd'];
 
-                $total = $price * $qty; // Preço total e calculado Preço X QUantidade
+                $total = $price * $qtd; // Preço total e calculado Preço X QUantidade
 
-                $order_date = date("Y-m-d h:i:sa"); // Data do pedido
+                $order_date = date("Y-m-d"); // Data do pedido
 
-                $status = "Realizado"; // Pedido , em entrega , entregue e  cancelado
+                $status = "Ordered"; // Pedido , em entrega , entregue e  cancelado
 
 
-                $customer_name = $_POST['full-name'];
+                $custumer_name = $_POST['full-name'];
                 $custumer_contact = $_POST['contact'];
                 $custumer_email = $_POST['email'];
-                $customer_address = $_POST['address'];
+                $custumer_address = $_POST['address'];
 
 
                 //Salvar o pedido no banco de dados 
 
-                $sql2 = "INSERT INTO tbl_order SET
-
-                 food = '$food',
-                 price = $price,
-                 qty = $qty,
-                 total = $total,
-                 order_date = '$order_date',
-                 status = '$status',
-                 customer_name = '$customer_name',
-                 customer_contact = '$customer_contact',
-                 customer_email = '$customer_email',
-                 customer_address = 'customer_address'
-                 ";
+                $sql2 = "INSERT INTO tbl_order SET food = '$food', price = $price, qtd = $qtd, total = $total, order_date = '$order_date', status = '$status', custumer_name = '$custumer_name', custumer_contact = '$custumer_contact', custumer_email = '$custumer_email', custumer_address = '$custumer_address'";
+                 //echo $sql2; die();
 
                  //Executar a query
 
@@ -155,12 +144,16 @@ else
                  {
                      //Query executada e pedido foi salvo
                      $_SESSION['order'] = "<div class='success'>Pedido realizado com sucesso</div>";
+                     header('location:'.SITEURL);
                      
 
                  }
                  else
                  {
                      //falhou ao executar em salvar pedido
+                     
+                     $_SESSION['order'] = "<div class='error'>Falha ao realizar o pedido</div>";
+                     header('location:'.SITEURL);
                  }
 
 
