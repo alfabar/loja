@@ -2,13 +2,13 @@
 
 <?php
 //verificar se o produto esta selecionado au não
-if(isset($GET_['food_id']))
+if(isset($_GET['food_id']))
 {
     //se estiver disponivel pegar os detalhes do produto selecionado
-    $food_id = $get['food_id'];
+    $food_id = $_GET['food_id'];
 
     //Obter os detalhes do produto selecionado
-    $sql = "SELECT * FROM tbl WHERE id=$food_id";
+    $sql = "SELECT * FROM tbl_food WHERE id=$food_id";
 
     //executar a query
     $res = mysqli_query($conn, $sql);
@@ -51,15 +51,33 @@ else
 
             <form action="#" class="order">
                 <fieldset>
-                    <legend>Selected Food</legend>
+                    <legend>Produto Selecionado</legend>
 
                     <div class="food-menu-img">
-                        <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                        <?php
+                        //Verificar a imagem se está disponivel ou não 
+                        if($image_name=="")
+                        {
+                            //imagem não disponivel
+                            echo "<div class='error'>Imagem não esta disponivel</div>";
+                        }
+                        else
+                        {
+                            //imagem está disponivel
+                            ?>
+                             <img src="<?php echo SITEURL; ?>images/produtos/<?php echo $image_name; ?>" alt="" class="img-responsive img-curve">
+
+                            <?php
+
+                        }
+                        
+                        ?>
+                        
                     </div>
     
                     <div class="food-menu-desc">
-                        <h3>Food Title</h3>
-                        <p class="food-price">$2.3</p>
+                        <h3><?php echo $title; ?></h3>
+                        <p class="food-price"><?php echo $price; ?></p>
 
                         <div class="order-label">Quantity</div>
                         <input type="number" name="qty" class="input-responsive" value="1" required>
