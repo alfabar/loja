@@ -143,7 +143,7 @@ else
                  if($res2==true)
                  {
                      //Query executada e pedido foi salvo
-                     $_SESSION['order'] = "<div class='success'>Pedido realizado com sucesso</div>";
+                     $_SESSION['order'] = "<div class='success text-center'>Pedido realizado com sucesso</div>";
                      header('location:'.SITEURL);
                      
 
@@ -152,7 +152,7 @@ else
                  {
                      //falhou ao executar em salvar pedido
                      
-                     $_SESSION['order'] = "<div class='error'>Falha ao realizar o pedido</div>";
+                     $_SESSION['order'] = "<div class='error text-center'>Falha ao realizar o pedido</div>";
                      header('location:'.SITEURL);
                  }
 

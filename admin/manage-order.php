@@ -10,33 +10,44 @@
     <table class="tbl-full">
       <tr>
         <th>S.N.</th>
-        <th>Nome completo</th>
-        <th>Usuario</th>
+        <th>Produto</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Total</th>
+        <th>Pedido Data</th>
+        <th>Status</th>
+        <th>Nome Cliente</th>
+        <th>Contato</th>
+        <th>Email</th>
+        <th>Endereço</th>
         <th>Ações</th>
       </tr>
+      <?php 
+
+      //Obter os dados do banco
+
+      
+
+      
+      ?>
+
       <tr>
         <td>1.</td>
         <td>Adriano Baram</td>
         <td>alfa_bar</td>
-        <td> <a class="btn-secundary" href="">Atualizar</a>
-          <a class="btn-danger" href="">delete admin</a></td>
-      </tr>
-      <tr>
-        <td>2.</td>
-        <td>Adriano Baram</td>
-        <td>alfa_bar</td>
-        <td> <a class="btn-secundary" href="">Atualizar</a>
-          <a class="btn-danger" href="">delete admin</a></td>
-      </tr>
-      <tr>
-        <td>3.</td>
-        <td>Adriano Baram</td>
-        <td>alfa_bar</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>        
         <td> 
-          <a class="btn-secundary" href="">Atualizar</a>
-          <a class="btn-danger" href="">delete admin</a>
-        </td>
+          <a class="btn-secundary" href="">Atualizar Pedido</a>
+          </td>
       </tr>
+      
     </table>
 </div>
 
