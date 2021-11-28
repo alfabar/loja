@@ -7,7 +7,7 @@ Neste curso "Site de pedido de comida", eu aprendi a criar um site completo, din
 1. HTML5
 2. CSS3
 3. PHP
-4. MySql
+4. MySqli
 
 **Referência**
 
