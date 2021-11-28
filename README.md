@@ -1,5 +1,5 @@
 # Ecomerce de pedido de comida em restaurante
-Neste curso "Site de pedido de comida", eu aprendi a criar um site completo, dinâmico e totalmente funcional, usando a linguagem de programação PHP e banco de dados MySQL. "Site de pedido de comida com PHP e MySQL".
+Neste curso "Site de pedido de comida", eu aprendi a criar um site completo, dinâmico e totalmente funcional, usando a linguagem de programação PHP e banco de dados MySQL. "Site de pedido de comida com PHP e MySQLI".
 
 <img height="180em" src="https://github-readme-stats.vercel.app/api?username=alfabar&show_icons=true&hide_border=true&&count_private=true&include_all_commits=true" />
 
