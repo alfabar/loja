@@ -5,6 +5,14 @@
         <h1>Atualizar o Pedido</h1>
         <br>
         <hr>
+        <?php
+        
+        if(isset($_GET['id']))
+        {
+            
+        }
+        
+        ?>
         <form action="" method="post">
             <table class="tbl-30">
                 <tr>
