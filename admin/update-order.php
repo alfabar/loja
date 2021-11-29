@@ -24,11 +24,11 @@
             {
                 //detalhes disponivel a tabela esta preparada para exibir dados
                 $row=mysqli_fetch_assoc($res);
+
                 $food = $row['food'];
                 $price = $row['price'];
                 $qtd = $row['qtd'];
                 $total = $row['total'];
-                $order_date = $row['order_date'];
                 $status = $row['status'];
                 $custumer_name = $row['custumer_name'];
                 $custumer_contact = $row['custumer_contact'];
@@ -40,12 +40,9 @@
             {
                 // Detalhes nãodisponivel
                 //redirecionar para pagina gerenciar produto
+                header('location:'.SITEURL.'admin/manage-order.php');
 
-            }
-
-
-
-            
+            }            
         }
         else
         {
@@ -121,22 +118,21 @@
         {
             //echo "clicado";
             //Pegar todos os valores do formulario
-                $id = $row['id'];
-                $price = $row['price'];
-                $qtd = $row['qtd'];
+                $id = $_POST['id'];
+                $price = $_POST['price'];
+                $qtd = $_POST['qtd'];
                 $total = $price * $qtd;
-                $order_date = $row['order_date'];
-                $status = $row['status'];
-                $custumer_name = $row['custumer_name'];
-                $custumer_contact = $row['custumer_contact'];
-                $custumer_email = $row['custumer_email'];
-                $custumer_address = $row['custumer_address'];
+                
+                $status = $_POST['status'];
+                $custumer_name = $_POST['custumer_name'];
+                $custumer_contact = $_POST['custumer_contact'];
+                $custumer_email = $_POST['custumer_email'];
+                $custumer_address = $_POST['custumer_address'];
 
 
                 // Atualizar os valores 
 
-                $sql2 = "UPDATE tbl_order SET 
-
+                $sql2 = "UPDATE tbl_order SET                
                 qtd = $qtd,
                 total = $total,
                 status = '$status',
@@ -149,31 +145,17 @@
                 //Executa a query
                 if($res2==true)
                 {
-                    $_SESSION['update'] = "<div class='success'>Pedido atualizado com sucesso </div>"
+                    $_SESSION['update'] = "<div class='success'>Pedido atualizado com sucesso </div>";
                     header('location:'.SITEURL.'admin/manage-order.php');
                 }
                 else
                 {
                     //Falhou ao atualizar
-                    $_SESSION['update'] = "<div class='success'>Pedido atualizado com sucesso </div>"
+                    $_SESSION['update'] = "<div class='error'>Pedido Falhou ao ser atualizado </div>";
                     header('location:'.SITEURL.'admin/manage-order.php');
                 }
-
-
-
-
-
-
-
-
-
                 ///redirecionar
-
-
         }
-
-
-
         ?>
 
 
