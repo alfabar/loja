@@ -120,7 +120,7 @@ else
 
                 $order_date = date("Y-m-d h:i:s"); // Data do pedido
 
-                $status = "Ordered"; // Pedido , em entrega , entregue e  cancelado
+                $status = "Pedido Recebido"; // Pedido , em entrega , entregue e  cancelado
 
 
                 $custumer_name = $_POST['full-name'];
