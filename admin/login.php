@@ -53,7 +53,7 @@
 
 if(isset($_POST['submit']))
 {
-    //processar para o login
+    //processar para o login e senha na tela de usuario
     //1º Obter dados do form para login
     $username = $_POST['username'];
     $password = $_POST['password'];
