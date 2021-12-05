@@ -165,7 +165,7 @@
               {
                   //Se falhou carregar imagem
                   // Redirecionar para adicionar
-                  $_SESSION['upload'] = "<div class='error'>Falhou ao carregar imagem</div>";
+                  $_SESSION['upload'] = "<div class='error'>Falhou ao carregar imagem do Produto</div>";
                   header('location:'.SITEURL.'admin/add-food.php');
                   //Parar o processo
                   die();
