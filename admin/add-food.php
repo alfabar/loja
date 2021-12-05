@@ -178,7 +178,7 @@
 
       }
 
-      //3º Adicionar comida ao banco de dados
+      //3º Adicionar Produto ao banco de dados
 
       // Criar uma consulta Sql para inserir os dados no banco de dados
       //para o valor numerico não precisamos passar entre aspas '' categoria e preço aprende seu jumento essa e a hora mas para valor de string e obrigado a passare
