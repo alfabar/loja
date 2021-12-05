@@ -174,7 +174,7 @@
       }
       else
       {
-          $image_name = ""; // definir se o valor nome estiver vazio
+          $image_name = ""; // definir se o valor nome estiver vazio da imagem se sim
 
       }
 
