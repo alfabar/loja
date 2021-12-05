@@ -83,7 +83,7 @@ password='$password'
     // Depois verificar se os dados foram inseridos ou não
     if ($res == TRUE) {
 
-        // dados inseridos com sucesso
+        // dados inseridos com sucesso no banco de dados
         //echo " dados inseridos com sucesso";
         // Criar variavel de sessão na tela
         $_SESSION['add'] = "Admin adicionado com sucesso";
