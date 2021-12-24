@@ -40,14 +40,14 @@
           <div class="col-4 text-center">
           <?php
           //executar a consulta na tabela do banco de dados
-          $sql3 = "SELECT * FROM tbl_order WHERE status='Delivered'";
+          $sql3 = "SELECT * FROM tbl_order WHERE status='Realizado'";
           //resposta da consulta
           $res3 = mysqli_query($conn, $sql3);
           //contar as colunas 
           $count3 = mysqli_num_rows($res3);
           ?>
               
-              <h1>R$ <?php echo $count3; ?></h1>
+              <h1> <?php echo $count3; ?></h1>
               <br>
               Total pedidos
           </div>
@@ -69,7 +69,7 @@
 
           
           ?>
-              <h1><?php echo $total_pedidos; ?></h1>
+              <h1>R$ <?php echo $total_pedidos; ?></h1>
               <br>
               Valores gerados
           </div> 
