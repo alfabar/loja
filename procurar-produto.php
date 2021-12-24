@@ -6,7 +6,7 @@
     <div class="container">
         <?php
         
-        $search = $_POST['search'];
+        $search = mysqli_real_escape_string($conn, $_POST['search']);
         
         
         ?>
@@ -30,6 +30,7 @@
         $search = $_POST['search'];
 
         //SQL query para obter os produtos baseado na procura
+        //SELECT
         $sql = "SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
 
         //Executar a query
