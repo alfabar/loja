@@ -4,7 +4,7 @@
 <div class="main-content">
 
   <div class="wrapper">
-    <h1>Manage admin</h1>
+    <h1>Gerenciar admin</h1>
     <br />
     <?php
     if (isset($_SESSION['add'])) {
@@ -86,8 +86,8 @@
               <td><?php echo $nome_completo; ?></td>
               <td><?php echo $nomeusuario; ?></td>
               <td> 
-              <a class="btn-primary" href="<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id; ?>">Trocar senha</a>
-                <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>">Atualizar</a>
+              <a class="btn-primary" href="<?php echo SITEURL; ?>admin/atualizar-senha.php?id=<?php echo $id; ?>">Trocar senha</a>
+                <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/atualizar-admin.php?id=<?php echo $id; ?>">Atualizar</a>
                 <a class="btn-danger" href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>">delete admin</a>
               </td>
             </tr>

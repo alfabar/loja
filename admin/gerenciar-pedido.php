@@ -2,7 +2,7 @@
 <div class="main-content">
 
 <div class="wrapper">
-    <h1>Manage pedido</h1>
+    <h1>Gerenciar pedido</h1>
       <!-- Botão do administrador -->
       <a class="btn-primary" href="">Gerenciar pedidos</a>
     <br>
@@ -102,7 +102,7 @@
           <td><?php echo $cliente_email; ?></td>
           <td><?php echo $cliente_endereco; ?></td>        
           <td> 
-            <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/update-pedido.php?id=<?php echo $id; ?>">Atualizar Pedido</a>
+            <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/atualizar-pedido.php?id=<?php echo $id; ?>">Atualizar Pedido</a>
             </td>
       </tr>
 

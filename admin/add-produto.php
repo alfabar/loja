@@ -199,13 +199,13 @@
       {
           // Dados inseridos com sucesso
           $_SESSION['add'] = "<div class='success'>Produto adicionado com sucesso</div>";
-          header('location:'.SITEURL.'admin/manage-produto.php');
+          header('location:'.SITEURL.'admin/gerenciar-produto.php');
       }
       else
       {
           //Falhou ao inserir dados
           $_SESSION['add'] = "<div class='error'>Falhou ao adicionar produto</div>";
-          header('location:'.SITEURL.'admin/manage-produto.php');
+          header('location:'.SITEURL.'admin/gerenciar-produto.php');
       }
   }  
     ?>    

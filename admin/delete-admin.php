@@ -17,7 +17,7 @@ if($res==true){
     //Criar uma variavel de sessão
     $_SESSION['delete'] = "<div class='success'>Admin deletado com sucesso</div>";
     //Redirecinando para pagina adminisrador
-    header('location:'.SITEURL.'admin/manage-admin.php');
+    header('location:'.SITEURL.'admin/gerenciar-admin.php');
 }
 else
 {
@@ -25,7 +25,7 @@ else
     // Falhou ao deletar admin
     //echo " admin não deletado";
     $_SESSION['delete'] = "<div class='error'>Falhou ao deletar o admin. tente denovo </div>";
-    header('location:'.SITEURL.'admin/manage-admin.php');
+    header('location:'.SITEURL.'admin/gerenciar-admin.php');
 }
 
 // Redirecionando para pagina admin

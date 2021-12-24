@@ -22,7 +22,7 @@ if(isset($_GET['id']) AND isset($_GET['image_name']))
             // Definir a mensagem da sessão
             $_SESSION['remove'] = "<div class='error'>Falhou em remover a imagem da categoria</div>";
             // redirecionar para categoria
-            header('location:'.SITEURL.'admin/manage-category.php');
+            header('location:'.SITEURL.'admin/gerenciar-categoria.php');
             //Parar o processo
             die();
         }
@@ -30,7 +30,7 @@ if(isset($_GET['id']) AND isset($_GET['image_name']))
 
     // Deletar dados do banco de dados 
     //Sql Query que deleta do banco de dados
-    $sql = "DELETE FROM tbl_category WHERE id=$id";
+    $sql = "DELETE FROM tbl_categoria WHERE id=$id";
 
     //Executar a query
     $res = mysqli_query($conn, $sql);
@@ -42,14 +42,14 @@ if(isset($_GET['id']) AND isset($_GET['image_name']))
         //Definir mensagem e redirecionar
         $_SESSION['delete'] = "<div class='success'>Categoria deletada com sucesso</div>";
         //Redirecionar apos exclusão pagina de categorias
-        header('location:'.SITEURL.'admin/manage-category.php');
+        header('location:'.SITEURL.'admin/gerenciar-categoria.php');
     }
     else
     {
         // definir mensagem de erro
         $_SESSION['delete'] = "<div class='error'>Categoria não foi deletada</div>";
         //Redirecionar apos exclusão pagina de categorias
-        header('location:'.SITEURL.'admin/manage-category.php');
+        header('location:'.SITEURL.'admin/gerenciar-categoria.php');
 
     }
 
@@ -59,6 +59,6 @@ else
 {
 
     //Redirecionar a pagina de Categoria
-    header('location:'.SITEURL.'admin/manage-category.php');
+    header('location:'.SITEURL.'admin/gerenciar-categoria.php');
 }
 ?>

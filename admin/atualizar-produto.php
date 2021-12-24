@@ -27,7 +27,7 @@
     else
     {
         //Redirecionar painel usuario
-        header('location:'.SITEURL.'admin/manage-produto.php');
+        header('location:'.SITEURL.'admin/gerenciar-produto.php');
     }
 
 ?>
@@ -184,7 +184,7 @@
                         //falhou sessão
                         $_SESSION['upload'] = "<div class='error'>Erro ao enviar</div>";
                         //redirecionar
-                        header('location:'.SITEURL.'admin/manage-produto.php');
+                        header('location:'.SITEURL.'admin/gerenciar-produto.php');
                         //logo apos parar o processo
                         die();
 
@@ -205,7 +205,7 @@
                         {
                             $_SESSION['remove-failed'] = "<div class='error'>Erro ao Remover</div>";
                             //Redirecionar e parar o proceso
-                            header('location:'.SITEURL.'admin/manage-produto.php');
+                            header('location:'.SITEURL.'admin/gerenciar-produto.php');
                             die();
                         }
                     }
@@ -243,13 +243,13 @@
             {
                 //query executada
                 $_SESSION['update'] = "<div class='success'>Produto atualizado com sucesso</div>";
-                header('location:'.SITEURL.'admin/manage-produto.php');
+                header('location:'.SITEURL.'admin/gerenciar-produto.php');
             }
             else
             {
                 //Falhou ao carregar imagem
                 $_SESSION['update'] = "<div class='error'>Erro ao atualizar</div>";
-                header('location:'.SITEURL.'admin/manage-produto.php');
+                header('location:'.SITEURL.'admin/gerenciar-produto.php');
             }
 
             

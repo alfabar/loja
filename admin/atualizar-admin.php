@@ -31,7 +31,7 @@
                 $nomeusuario = $row['nomeusuario'];
             } else {
                 //redirecione para pagina admn
-                header('location:' . SITEURL . 'admin/manage-admin.php');
+                header('location:' . SITEURL . 'admin/gerenciar-admin.php');
             }
         }
         ?>
@@ -85,12 +85,12 @@ if (isset($_POST['submit'])) {
         //Admin atualizado com sucesso
         $_SESSION['update'] = "<div class='success'> Administrador atualizado com sucesso </div>";
         //Redirecionando para pagina Admin
-        header('location:' . SITEURL . 'admin/manage-admin.php');
+        header('location:' . SITEURL . 'admin/gerenciar-admin.php');
     } else {
         //Falhou ao atualizar o admin
         $_SESSION['update'] = "<div class='error'> Administrador Não foi Atualizado </div>";
         //Redirecionando para pagina Admin
-        header('location:' . SITEURL . 'admin/manage-admin.php');
+        header('location:' . SITEURL . 'admin/gerenciar-admin.php');
     }
 }
 

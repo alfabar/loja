@@ -88,7 +88,7 @@ senha='$senha'
         // Criar variavel de sessão na tela
         $_SESSION['add'] = "Admin adicionado com sucesso";
         //redirecionando para pagina admin
-        header("location:" . SITEURL . 'admin/manage-admin.php');
+        header("location:" . SITEURL . 'admin/gerenciar-admin.php');
     } else {
         //Falhou a conecção
         $_SESSION['add'] = "Falhou em adicionar admin";

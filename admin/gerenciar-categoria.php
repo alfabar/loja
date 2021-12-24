@@ -20,10 +20,10 @@
           echo $_SESSION['delete'];
           unset($_SESSION['delete']);
         }
-        if(isset($_SESSION['no-category-found']))
+        if(isset($_SESSION['categoria-nao-encontrada']))
         {
-          echo $_SESSION['no-category-found'];
-          unset($_SESSION['no-category-found']);
+          echo $_SESSION['categoria-nao-encontrada'];
+          unset($_SESSION['categoria-nao-encontrada']);
         }
         if(isset($_SESSION['update']))
         {
@@ -45,7 +45,7 @@
         ?>
 
       <!-- Botão do administrador -->
-      <a class="btn-primary" href="<?php echo SITEURL; ?>admin/add-category.php">Adicionar Categoria</a>
+      <a class="btn-primary" href="<?php echo SITEURL; ?>admin/add-categoria.php">Adicionar Categoria</a>
     <br>
 
     <table class="tbl-full">
@@ -60,7 +60,7 @@
       <?php
 
       //Query que consulta para obter dados da tabela categoria
-      $sql = "SELECT * FROM tbl_category";
+      $sql = "SELECT * FROM tbl_categoria";
 
       // Comandos para Executar a consulta Query
       $res = mysqli_query($conn, $sql);
@@ -116,8 +116,8 @@
             <td><?php echo $destaque; ?></td>
             <td><?php echo $ativo; ?></td>
             <td> 
-              <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>">Atualizar</a>
-              <a class="btn-danger" href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>">Excluir</a>
+              <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/atualizar-categoria.php?id=<?php echo $id; ?>">Atualizar</a>
+              <a class="btn-danger" href="<?php echo SITEURL; ?>admin/deletar-categoria.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>">Excluir</a>
             </td>
           </tr>
           <?php

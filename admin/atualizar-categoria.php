@@ -11,7 +11,7 @@
             //echo "Obtendo data";
             $id = $_GET['id'];
             //Criar uma consulta sql
-            $sql = "SELECT * FROM tbl_category WHERE id=$id";
+            $sql = "SELECT * FROM tbl_categoria WHERE id=$id";
 
             //Executar a consulta
             $res =  mysqli_query($conn, $sql);
@@ -33,14 +33,14 @@
             else
             {
                 //Redirecionar para Gerenciar categoria
-                $_SESSION['no-category-found'] = "<div class='error'>Categoria não encontrada</div>";
-                header('location:'.SITEURL.'admin/manage-category.php');
+                $_SESSION['categoria-nao-encontrada'] = "<div class='error'>Categoria não encontrada</div>";
+                header('location:'.SITEURL.'admin/gerenciar-categoria.php');
             }
         }
         else
         {
-            //redirecionar pagina manager
-            header('location:'.SITEURL.'admin/manage.php');
+            //redirecionar pagina gerenciarr
+            header('location:'.SITEURL.'admin/gerenciar.php');
         }
         
         ?>
@@ -145,7 +145,7 @@
                         // definir mensagem
                         $_SESSION['upload'] = "<div class='error'>falhou ao subir imagem</div> ";
                         //Redirecionando para pagina
-                        header('location:'.SITEURL.'admin/manage-category.php');
+                        header('location:'.SITEURL.'admin/gerenciar-categoria.php');
                         //Parar o processo
                         die();
                     }
@@ -163,7 +163,7 @@
                         {
                             //Falhou em remover
                             $_SESSION['fail-remove'] = "<div class='error'>falhou ao remover imagem</div>";
-                            header('location:'.SITEURL.'admin/manage-category.php');
+                            header('location:'.SITEURL.'admin/gerenciar-categoria.php');
                             die();
                         }
                     }                   
@@ -180,7 +180,7 @@
             }
 
             // 3º Atualizar o banco de dados
-            $sql2 = "UPDATE tbl_category SET
+            $sql2 = "UPDATE tbl_categoria SET
             titulo = '$titulo',
             image_name = '$image_name',
             destaque = '$destaque',
@@ -195,13 +195,13 @@
             {
                 //Categoria atualizada
                 $_SESSION['update'] = "<div class='success'>Atualizado</div>";
-                header('location:'.SITEURL.'admin/manage-category.php');
+                header('location:'.SITEURL.'admin/gerenciar-categoria.php');
             }
             else
             {
                 //Falhou atualizar categoria
                 $_SESSION['update'] = "<div class='error'>Não Atualizado</div>";
-                header('location:'.SITEURL.'admin/manage-category.php');
+                header('location:'.SITEURL.'admin/gerenciar-categoria.php');
             }
 
            

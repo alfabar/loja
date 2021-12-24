@@ -48,7 +48,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="Add Category" class="btn-secundary">
+                        <input type="submit" name="submit" value="Add categoria" class="btn-secundary">
                     </td>
                 </tr>
             </table>
@@ -125,7 +125,7 @@
                     // definir mensagem
                     $_SESSION['upload'] = "<div class='error'>falhou ao subir imagem</div> ";
                     //Redirecionando para pagina
-                    header('location:'.SITEURL.'admin/add-category.php');
+                    header('location:'.SITEURL.'admin/add-categoria.php');
                     //Parar o processo
                     die();
                 }
@@ -141,7 +141,7 @@
             }
 
             //2º Criar a Query Sql para inserir a categoria no banco de dados
-            $sql = "INSERT INTO tbl_category SET
+            $sql = "INSERT INTO tbl_categoria SET
                 titulo='$titulo',
                 image_name='$image_name',
                 destaque='$destaque',
@@ -156,14 +156,14 @@
                 //query executada e adicionada categoria
                 $_SESSION['add'] = "<div class='success'>Categoria adicionada com sucesso</div> ";
                 //redirecionar para gerenciar categoria
-                header('location:'.SITEURL.'admin/manage-category.php');
+                header('location:'.SITEURL.'admin/gerenciar-categoria.php');
             }
             else
             {
                 //falhou ao adicionar as categorias
                  $_SESSION['add'] = "<div class='success'>Erro ao adicionar categoria</div> ";
                  //redirecionar para gerenciar categoria
-                 header('location:'.SITEURL.'admin/add-category.php');
+                 header('location:'.SITEURL.'admin/add-categoria.php');
             }
         }       
         ?>

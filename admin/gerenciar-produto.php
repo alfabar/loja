@@ -2,7 +2,7 @@
 <div class="main-content">
 
 <div class="wrapper">
-    <h1>Manage produto</h1>
+    <h1>gerenciar produto</h1>
       <!-- Botão do administrador -->
       <a class="btn-primary" href="<?php echo SITEURL; ?>admin/add-produto.php">Adicionar Comida</a>
     <br>
@@ -69,7 +69,7 @@
           $descricao = $row['descricao'];
           $image_name = $row['image_name'];
           $destaque = $row['destaque'];
-          $active = $row['active'];
+          $active = $row['ativo'];
           ?>
           <tr>
             <td><?php echo $sn++; ?></td>

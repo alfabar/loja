@@ -79,7 +79,7 @@
                     //Redireciona para Pagina do adm
                     $_SESSION['change-pwd'] = "<div class='success'>Senhas Alterada com sucesso</div>";
                     //Redirecionar o usuario
-                    header('location:'.SITEURL.'admin/manage-admin.php');
+                    header('location:'.SITEURL.'admin/gerenciar-admin.php');
                     
                 }
                 else
@@ -87,7 +87,7 @@
                     //mostar mensagen de erro
                     $_SESSION['change-pwd'] = "<div class='error'>Senhas não alteradas</div>";
                     //Redirecionar o usuario
-                    header('location:'.SITEURL.'admin/manage-admin.php');
+                    header('location:'.SITEURL.'admin/gerenciar-admin.php');
 
                 }
             }
@@ -96,7 +96,7 @@
                 //Redireciona para Pagina do adm
                 $_SESSION['pwd-not-match'] = "<div class='error'>Senhas Não Corresponde</div>";
                 //Redirecionar o usuario
-                header('location:'.SITEURL.'admin/manage-admin.php');
+                header('location:'.SITEURL.'admin/gerenciar-admin.php');
             }
 
         }
@@ -105,7 +105,7 @@
             //o usuario não existe e define uma mensagem e redireciona
             $_SESSION['user-not-found'] = "<div class='error'>Usuario não encontrado</div>";
             //Redirecionar o usuario
-            header('location:'.SITEURL.'admin/manage-admin.php');
+            header('location:'.SITEURL.'admin/gerenciar-admin.php');
 
         }
     }
