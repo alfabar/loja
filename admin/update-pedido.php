@@ -13,7 +13,7 @@
             $id=$_GET['id'];
 
             //Pegar todos os detalhes baseado nesta consulta
-            $sql = "SELECT * FROM tbl_order WHERE id=$id";
+            $sql = "SELECT * FROM tbl_pedido WHERE id=$id";
 
             //Executar a query 
             $res = mysqli_query($conn, $sql);
@@ -40,14 +40,14 @@
             {
                 // Detalhes nãodisponivel
                 //redirecionar para pagina gerenciar produto
-                header('location:'.SITEURL.'admin/gerenciar-order.php');
+                header('location:'.SITEURL.'admin/gerenciar-pedido.php');
 
             }            
         }
         else
         {
             //redirecionar para o site
-            header('location:'.SITEURL.'admin/gerenciar-order.php');
+            header('location:'.SITEURL.'admin/gerenciar-pedido.php');
         }
         
         ?>
@@ -133,14 +133,14 @@
 
                 // Atualizar os valores 
 
-                $sql3 = "UPDATE `tbl_order` SET qtd = $qtd, total = $total, status = '$status', cliente_nome = '$cliente_nome', cliente_contato = '$cliente_contato', cliente_email = '$cliente_email', cliente_endereco = '$cliente_endereco', WHERE id=$id";
+                $sql3 = "UPDATE `tbl_pedido` SET qtd = $qtd, total = $total, status = '$status', cliente_nome = '$cliente_nome', cliente_contato = '$cliente_contato', cliente_email = '$cliente_email', cliente_endereco = '$cliente_endereco', WHERE id=$id";
                 //Executa a query
                 $res2 = mysqli_query($conn, $sql3);
 
                 if($res2==true)
                 {
                     $_SESSION['update'] = "<div class='success'>Pedido atualizado com sucesso </div>";
-                    header('location:'.SITEURL.'admin/gerenciar-order.php');
+                    header('location:'.SITEURL.'admin/gerenciar-pedido.php');
                 }
                 else
                 {
@@ -148,7 +148,7 @@
                     //Falhou ao atualizar
                     $_SESSION['update'] = "<div class='error'>Pedido Falhou ao ser atualizado </div>";
                   
-                    header('location:'.SITEURL.'admin/gerenciar-order.php');
+                    header('location:'.SITEURL.'admin/gerenciar-pedido.php');
                 }
 
                 ///redirecionar

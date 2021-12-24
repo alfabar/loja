@@ -2,7 +2,7 @@
 <div class="main-content">
 
 <div class="wrapper">
-    <h1>Manage Order</h1>
+    <h1>Manage pedido</h1>
       <!-- Botão do administrador -->
       <a class="btn-primary" href="">Gerenciar pedidos</a>
     <br>
@@ -34,7 +34,7 @@
 
       //Obter os dados do banco
 
-      $sql = "SELECT * FROM tbl_order ";/// Visualizando ORDER BY id DESC produtos por id orden decrecente há grande necessidade de acertar os detalhes da data 
+      $sql = "SELECT * FROM tbl_pedido ";/// Visualizando pedido BY id DESC produtos por id orden decrecente há grande necessidade de acertar os detalhes da data 
 
       // Executar a consulta query
 
@@ -56,9 +56,9 @@
         $descricao = $row['descricao'];
         $qtd = $row['qtd'];
         $total = $row['total'];
-        $order_date = $row['order_date'];
+        $pedido_date = $row['pedido_date'];
         $status = $row['status'];
-        $cliente_name = $row['cliente_name'];
+        $cliente_nome = $row['cliente_nome'];
         $cliente_contato = $row['cliente_contato'];
         $cliente_email = $row['cliente_email'];
         $cliente_endereco = $row['cliente_endereco'];
@@ -70,7 +70,7 @@
           <td><?php echo $descricao; ?></td>
           <td><?php echo $qtd; ?></td>
           <td><?php echo $total; ?></td>
-          <td><?php echo $order_date; ?></td>
+          <td><?php echo $pedido_date; ?></td>
 
           <td>
             <?php 
@@ -97,12 +97,12 @@
             ?>
           </td>
 
-          <td><?php echo $cliente_name; ?></td>
+          <td><?php echo $cliente_nome; ?></td>
           <td><?php echo $cliente_contato; ?></td>
           <td><?php echo $cliente_email; ?></td>
           <td><?php echo $cliente_endereco; ?></td>        
           <td> 
-            <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/update-order.php?id=<?php echo $id; ?>">Atualizar Pedido</a>
+            <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/update-pedido.php?id=<?php echo $id; ?>">Atualizar Pedido</a>
             </td>
       </tr>
 

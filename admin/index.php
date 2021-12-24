@@ -40,7 +40,7 @@
           <div class="col-4 text-center">
           <?php
           //executar a consulta na tabela do banco de dados
-          $sql3 = "SELECT * FROM tbl_order WHERE status='Realizado'";
+          $sql3 = "SELECT * FROM tbl_pedido WHERE status='Realizado'";
           //resposta da consulta
           $res3 = mysqli_query($conn, $sql3);
           //contar as colunas 
@@ -57,7 +57,7 @@
 
           //criar uma consulta sql para obter o total de valor gerado
           // agregar os valores com função sql
-          $sql4 = "SELECT sum(total) AS Total FROM tbl_order";
+          $sql4 = "SELECT sum(total) AS Total FROM tbl_pedido";
           //executar a query de consulta
           $res4 = mysqli_query($conn, $sql4);
 
