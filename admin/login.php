@@ -55,8 +55,12 @@ if(isset($_POST['submit']))
 {
     //processar para o login e senha na tela de usuario
     //1º Obter dados do form para login
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    //$username = $_POST['username'];
+    //$password = $_POST['password'];
+
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $raw_password = md5($_POST['password']);
+    $password = mysqli_real_escape_string($conn, $raw_password);
 
 
     //2º criar consulta SQL que verifica se nome e usuario existe
@@ -84,11 +88,6 @@ if(isset($_POST['submit']))
          //redirecionar para o painel administrador
          header('location:'.SITEURL.'admin/login.php');
     }
-    
-
-
 }
-
-
 ?>
 
