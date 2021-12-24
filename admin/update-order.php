@@ -77,7 +77,6 @@
                         </select>
                     </td>
                 </tr>
-
                 <tr>
                     <td>Nome Cliente: </td>
                     <td>
@@ -106,7 +105,7 @@
                     <td colspan="2">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <input type="hidden" name="price" value="<?php echo $price; ?>">
-                        <input type="submit" name="submit" value="Atualizar Pedido" class="btn-secondary">
+                        <input type="submit" name="atualizar" value="Atualizar" class="btn-secondary">
                     </td>
                 </tr>
             </table>
@@ -114,16 +113,18 @@
 
         <?php 
 
-        if(isset($_POST['submit']))
+        if(isset($_POST['atualizar']))
         {
-            echo "clicado";
+            //echo "clicado";
             //Pegar todos os valores do formulario
                 $id = $_POST['id'];
                 $price = $_POST['price'];
                 $qtd = $_POST['qtd'];
+
                 $total = $price * $qtd;
                 
                 $status = $_POST['status'];
+
                 $custumer_name = $_POST['custumer_name'];
                 $custumer_contact = $_POST['custumer_contact'];
                 $custumer_email = $_POST['custumer_email'];
@@ -132,18 +133,9 @@
 
                 // Atualizar os valores 
 
-                $sql2 = "UPDATE tbl_order SET                
-                qtd = $qtd,
-                total = $total,
-                status = '$status',
-                custumer_name = '$custumer_name',
-                custumer_contact = '$custumer_contact',
-                custumer_email = '$custumer_email',
-                custumer_address = '$custumer_address',
-                WHERE id=$id";
-
+                $sql3 = "UPDATE `tbl_order` SET qtd = $qtd, total = $total, status = '$status', custumer_name = '$custumer_name', custumer_contact = '$custumer_contact', custumer_email = '$custumer_email', custumer_address = '$custumer_address', WHERE id=$id";
                 //Executa a query
-                $res2 = mysqli_query($conn, $sql2);
+                $res2 = mysqli_query($conn, $sql3);
 
                 if($res2==true)
                 {
