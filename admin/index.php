@@ -40,7 +40,7 @@
           <div class="col-4 text-center">
           <?php
           //executar a consulta na tabela do banco de dados
-          $sql3 = "SELECT * FROM tbl_order";
+          $sql3 = "SELECT * FROM tbl_order WHERE status='Delivered'";
           //resposta da consulta
           $res3 = mysqli_query($conn, $sql3);
           //contar as colunas 
