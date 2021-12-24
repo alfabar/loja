@@ -47,7 +47,7 @@ else
     <section class="food-search">
         <div class="container">
             
-            <h2 class="text-center text-white">Fill this form to confirm your order.</h2>
+            <h2 class="text-center text-white">Preencha este formulário para confirmar seu pedido</h2>
 
             <form action="" method="POST" class="order">
                 <fieldset>
@@ -81,7 +81,7 @@ else
                         <p class="food-price"><?php echo $price; ?></p>
                         <input type="hidden" name="price" value="<?php echo $price; ?>">
 
-                        <div class="order-label">Quantity</div>
+                        <div class="order-label">Quantidade</div>
                         <input type="number" name="qtd" class="input-responsive" value="1" required>
                         
                     </div>
@@ -89,17 +89,17 @@ else
                 </fieldset>
                 
                 <fieldset>
-                    <legend>Delivery Details</legend>
-                    <div class="order-label">Full Name</div>
+                    <legend>Detalhes da entrega</legend>
+                    <div class="order-label">Nome Completo</div>
                     <input type="text" name="full-name" placeholder="E.g. Vijay Thapa" class="input-responsive" required>
 
-                    <div class="order-label">Phone Number</div>
+                    <div class="order-label">Telefone</div>
                     <input type="tel" name="contact" placeholder="E.g. 9843xxxxxx" class="input-responsive" required>
 
                     <div class="order-label">Email</div>
                     <input type="email" name="email" placeholder="E.g. hi@vijaythapa.com" class="input-responsive" required>
 
-                    <div class="order-label">Address</div>
+                    <div class="order-label">Endereço</div>
                     <textarea name="address" rows="10" placeholder="E.g. Street, City, Country" class="input-responsive" required></textarea>
 
                     <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary">

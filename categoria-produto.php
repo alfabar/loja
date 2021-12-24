@@ -45,7 +45,7 @@ else
     <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
         <div class="container">
-            <h2 class="text-center">Food Menu</h2>
+            <h2 class="text-center">Menu Produtos</h2>
 
             <?php
 

@@ -7,7 +7,7 @@
 
         <form action="<?php echo SITEURL; ?>procurar-produtos.php" method="POST">
             <input type="search" name="search" placeholder="Procure produtos.." required>
-            <input type="submit" name="submit" value="Search" class="btn btn-primary">
+            <input type="submit" name="submit" value="Procurar" class="btn btn-primary">
         </form>
 
     </div>
@@ -19,7 +19,7 @@
 <!-- fOOD MEnu Section Starts Here -->
 <section class="food-menu">
     <div class="container">
-        <h2 class="text-center">Food Menu</h2>
+        <h2 class="text-center">Menu Produtos</h2>
         <?php
         //mostrar produtos ativos
         $sql = "SELECT * FROM tbl_food WHERE active='Yes'";
