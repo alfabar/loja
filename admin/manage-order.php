@@ -6,6 +6,14 @@
       <!-- Botão do administrador -->
       <a class="btn-primary" href="">Gerenciar pedidos</a>
     <br>
+    <?php
+    if(isset($_SESSION['update']))
+    {
+      echo $_SESSION['update'];
+      unset($_SESSION['update']);
+    }
+    
+    ?>
 
     <table class="tbl-full">
       <tr>
