@@ -47,7 +47,7 @@
           $count3 = mysqli_num_rows($res3);
           ?>
               
-              <h1><?php echo $count3; ?></h1>
+              <h1>R$ <?php echo $count3; ?></h1>
               <br>
               Total pedidos
           </div>
