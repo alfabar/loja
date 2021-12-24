@@ -12,24 +12,34 @@
             }           
             ?>
           <div class="col-4 text-center">
+
+          <?php
+
+          //executar a consulta na tabela do banco de dados
+
+          $sql = "SELECT * FROM tbl_category";
+
+
+
+          ?>
               <h1>5</h1>
               <br>
-              Categories
+              Categorias
           </div>
           <div class="col-4 text-center">
               <h1>5</h1>
               <br>
-              Categories
+              Produtos
           </div>
           <div class="col-4 text-center">
               <h1>5</h1>
               <br>
-              Categories
+              Total pedidos
           </div>
           <div class="col-4 text-center">
               <h1>5</h1>
               <br>
-              Categories
+              Renovar
           </div> 
           <div class="clearfix"></div>        
       </div>
