@@ -52,9 +52,26 @@
               Total pedidos
           </div>
           <div class="col-4 text-center">
-              <h1>5</h1>
+
+          <?php
+
+          //criar uma consulta sql para obter o total de valor gerado
+          // agregar os valores com função sql
+          $sql4 = "SELECT sum(total) AS Total FROM tbl_order";
+          //executar a query de consulta
+          $res4 = mysqli_query($conn, $sql4);
+
+          //obter o valor
+          $row4 = mysqli_fetch_assoc($res4);
+
+          //obter o total dos pedidos
+          $total_pedidos = $row4['Total'];
+
+          
+          ?>
+              <h1><?php echo $total_pedidos; ?></h1>
               <br>
-              Renovar
+              Valores gerados
           </div> 
           <div class="clearfix"></div>        
       </div>
