@@ -36,10 +36,10 @@ include('login-check.php');
      <div class="wrapper">
          <ul>
              <li> <a href="index.php">Home</a> </li>
-             <li> <a href="manage-admin.php">Adm</a> </li>
-             <li> <a href="manage-category.php">Categoria</a> </li>
-             <li> <a href="manage-food.php">Cardapio</a> </li>
-             <li> <a href="manage-order.php">Pedido</a> </li>
+             <li> <a href="gerenciar-admin.php">Adm</a> </li>
+             <li> <a href="gerenciar-category.php">Categoria</a> </li>
+             <li> <a href="gerenciar-produto.php">Cardapio</a> </li>
+             <li> <a href="gerenciar-order.php">Pedido</a> </li>
              <li> <a href="logout.php">Sair</a> </li>
          </ul>
      </div>

@@ -86,7 +86,7 @@ if (isset($_SESSION['order'])) {
         <?php
         //pegando os produtos da tabela no banco de dados 
         //consultar banco de dados
-        $sql2 = "SELECT * FROM tbl_food WHERE active='Yes' AND feature='Yes' LIMIT 6";
+        $sql2 = "SELECT * FROM tbl_produto WHERE active='Yes' AND feature='Yes' LIMIT 6";
 
         $res2 = mysqli_query($conn, $sql2);
 
@@ -132,7 +132,7 @@ if (isset($_SESSION['order'])) {
                         </p>
                         <br>
 
-                        <a href="<?php echo SITEURL; ?>pedidos.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Pedir Agora</a>
+                        <a href="<?php echo SITEURL; ?>pedidos.php?produto_id=<?php echo $id; ?>" class="btn btn-primary">Pedir Agora</a>
                     </div>
                 </div>
 
@@ -152,9 +152,9 @@ if (isset($_SESSION['order'])) {
     </div>
 
     <p class="text-center">
-        <a href="#">See All Foods</a>
+        <a href="#">See All produtos</a>
     </p>
 </section>
-<!-- fOOD Menu Section Ends Here -->
+<!-- produto Menu Section Ends Here -->
 
 <?php include('partials-front/footer.php') ?>

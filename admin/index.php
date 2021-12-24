@@ -27,7 +27,7 @@
           <div class="col-4 text-center">
           <?php
           //executar a consulta na tabela do banco de dados
-          $sql2 = "SELECT * FROM tbl_food";
+          $sql2 = "SELECT * FROM tbl_produto";
           //resposta da consulta
           $res2 = mysqli_query($conn, $sql2);
           //contar as colunas 

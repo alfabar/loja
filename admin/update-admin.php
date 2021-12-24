@@ -27,8 +27,8 @@
                 //echo "admin disponivel";
                 $row = mysqli_fetch_assoc($res);
 
-                $full_name = $row['full_name'];
-                $username = $row['username'];
+                $nome_completo = $row['nome_completo'];
+                $nomeusuario = $row['nomeusuario'];
             } else {
                 //redirecione para pagina admn
                 header('location:' . SITEURL . 'admin/manage-admin.php');
@@ -43,11 +43,11 @@
 
                 <tr>
                     <td>Nome Completo:</td>
-                    <td><input type="text" name="full_name" value="<?php echo $full_name; ?>"></td>
+                    <td><input type="text" name="nome_completo" value="<?php echo $nome_completo; ?>"></td>
                 </tr>
                 <tr>
-                    <td>Username:</td>
-                    <td><input type="text" name="username" value="<?php echo $username; ?>"></td>
+                    <td>nomeusuario:</td>
+                    <td><input type="text" name="nomeusuario" value="<?php echo $nomeusuario; ?>"></td>
                 </tr>
 
                 <tr>
@@ -67,13 +67,13 @@ if (isset($_POST['submit'])) {
     // echo " botão clicado";
     // Obter todos os valores au atualizar
     $id = $_POST['id'];
-    $full_name = $_POST['full_name'];
-    $username = $_POST['username'];
+    $nome_completo = $_POST['nome_completo'];
+    $nomeusuario = $_POST['nomeusuario'];
 
     //Criar uma consulta sql para atualizar admin
     $sql = "UPDATE tbl_admin SET
-   full_name = '$full_name',
-   username = '$username'
+   nome_completo = '$nome_completo',
+   nomeusuario = '$nomeusuario'
    WHERE id='$id'   
    ";
 

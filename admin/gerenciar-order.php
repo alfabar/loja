@@ -52,22 +52,22 @@
         while($row=mysqli_fetch_assoc($res))
         {
         $id = $row['id'];
-        $food = $row['food'];
-        $price = $row['price'];
+        $produto = $row['produto'];
+        $descricao = $row['descricao'];
         $qtd = $row['qtd'];
         $total = $row['total'];
         $order_date = $row['order_date'];
         $status = $row['status'];
-        $custumer_name = $row['custumer_name'];
-        $custumer_contact = $row['custumer_contact'];
-        $custumer_email = $row['custumer_email'];
-        $custumer_address = $row['custumer_address'];
+        $cliente_name = $row['cliente_name'];
+        $cliente_contato = $row['cliente_contato'];
+        $cliente_email = $row['cliente_email'];
+        $cliente_endereco = $row['cliente_endereco'];
       }
         ?>
         <tr> 
           <td><?php echo $sn++; ?></td>
-          <td><?php echo $food; ?></td>
-          <td><?php echo $price; ?></td>
+          <td><?php echo $produto; ?></td>
+          <td><?php echo $descricao; ?></td>
           <td><?php echo $qtd; ?></td>
           <td><?php echo $total; ?></td>
           <td><?php echo $order_date; ?></td>
@@ -97,10 +97,10 @@
             ?>
           </td>
 
-          <td><?php echo $custumer_name; ?></td>
-          <td><?php echo $custumer_contact; ?></td>
-          <td><?php echo $custumer_email; ?></td>
-          <td><?php echo $custumer_address; ?></td>        
+          <td><?php echo $cliente_name; ?></td>
+          <td><?php echo $cliente_contato; ?></td>
+          <td><?php echo $cliente_email; ?></td>
+          <td><?php echo $cliente_endereco; ?></td>        
           <td> 
             <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/update-order.php?id=<?php echo $id; ?>">Atualizar Pedido</a>
             </td>

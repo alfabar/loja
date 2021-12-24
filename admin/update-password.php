@@ -13,20 +13,20 @@
             <table class="tbl-30">
                 <tr>
                     <td>Senha Antiga:</td>
-                    <td><input type="password" name="current_password" placeholder="Senha atual"></td>
+                    <td><input type="senha" name="atual_senha" placeholder="Senha atual"></td>
                 </tr>
                 <tr>
                     <td>Nova senha:</td>
-                    <td><input type="password" name="new_password" placeholder="Senha Nova"></td>
+                    <td><input type="senha" name="nova_senha" placeholder="Senha Nova"></td>
                 </tr>
                 <tr>
                     <td>Confirme a Senha:</td>
-                    <td><input type="password" name="confirm_password" placeholder="Confirme a senha"></td>
+                    <td><input type="senha" name="confirm_senha" placeholder="Confirme a senha"></td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <input type="hidden" name="id" value="<?php echo $id;?>">
-                        <input type="submit" name="submit" value="Change Password" class="btn-secundary">
+                        <input type="submit" name="submit" value="Change senha" class="btn-secundary">
                     </td>
                 </tr>
             </table>
@@ -41,12 +41,12 @@
 
     // 1º Obter dados dos campos do formulario
     $_id=$_POST['id'];
-    $current_password = md5($_POST['current_password']);
-    $new_password = md5($_POST['new_password']);
-    $confirm_password = md5($_POST['confirm_password']);
+    $atual_senha = md5($_POST['atual_senha']);
+    $nova_senha = md5($_POST['nova_senha']);
+    $confirm_senha = md5($_POST['confirm_senha']);
 
     // 2º checar se a senha do usuario atual já existe
-    $sql = "SELECT * FROM tbl_admin WHERE id=$id AND password='$current_password'";
+    $sql = "SELECT * FROM tbl_admin WHERE id=$id AND senha='$atual_senha'";
 
     //EXECUTAR A CONSULTA NO BANCO DE DADOS
     $res = mysqli_query($conn, $sql);
@@ -62,12 +62,12 @@
             // o usuário existe e a senha pode ser alterada
             //echo "usuario encontrado";
             // Checar se a nova senha e a confirmação da senha correspondem
-            if($new_password==$confirm_password)
+            if($nova_senha==$confirm_senha)
             {
                 //Atualiza nova senha
                 //echo "Senha atualizada com sucesso";
                 $sql2 = "UPDATE tbl_admin SET
-                   password='$new_password'
+                   senha='$nova_senha'
                    WHERE id=$id               
                 ";
                 //executar a Query

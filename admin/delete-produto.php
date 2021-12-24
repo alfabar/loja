@@ -25,7 +25,7 @@ if(isset($_GET['id']) AND isset($_GET['image_name']))// pode ser usado tanto && 
             $_SESSION['upload'] = "<div class='error'>Falha ao remover a imagem</div>";
 
             //redirecionar pagina painel produtos
-            header('location:'.SITEURL.'admin/manage-food.php');
+            header('location:'.SITEURL.'admin/manage-produto.php');
 
             //Parar o processo de deletar
             die();
@@ -33,23 +33,23 @@ if(isset($_GET['id']) AND isset($_GET['image_name']))// pode ser usado tanto && 
     }
 
     //3º deletar produto do banco de dados
-    $sql = "DELETE FROM tbl_food WHERE id=$id";
+    $sql = "DELETE FROM tbl_produto WHERE id=$id";
 
     //Executar a query consulta
     $res = mysqli_query($conn, $sql);
 
-    //4º Redirect to manage food with 
+    //4º Redirect to manage produto with 
     if($res==true)
     {
         //Deletar o produto
         $_SESSION['delete'] = "<div class='success'>Produto deletado com sucesso</div>";
-        header('location:'.SITEURL.'admin/manage-food.php');
+        header('location:'.SITEURL.'admin/manage-produto.php');
     }
     else
     {
         //Falhou ao deletar
         $_SESSION['delete'] = "<div class='error'>Produto deletado com Erro</div>";
-        header('location:'.SITEURL.'admin/manage-food.php');
+        header('location:'.SITEURL.'admin/manage-produto.php');
 
     }
 }
@@ -58,7 +58,7 @@ else
     //redirecionar pagina de painel
     echo "redirecionar";
     $_SESSION['unauthorized'] = "<div class='error'>Falha ao executar</div>";
-    header('location:'.SITEURL.'admin/manage-food.php');
+    header('location:'.SITEURL.'admin/manage-produto.php');
 
 
 }

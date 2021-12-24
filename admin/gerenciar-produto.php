@@ -2,9 +2,9 @@
 <div class="main-content">
 
 <div class="wrapper">
-    <h1>Manage Food</h1>
+    <h1>Manage produto</h1>
       <!-- Botão do administrador -->
-      <a class="btn-primary" href="<?php echo SITEURL; ?>admin/add-food.php">Adicionar Comida</a>
+      <a class="btn-primary" href="<?php echo SITEURL; ?>admin/add-produto.php">Adicionar Comida</a>
     <br>
     <?php 
     if(isset($_SESSION['add']))
@@ -48,7 +48,7 @@
       <?php 
 
       //Criar uma consulta sql para exibir dados na tabela
-      $sql = "SELECT * FROM tbl_food";
+      $sql = "SELECT * FROM tbl_produto";
 
       // executar a consulta query    
       $res = mysqli_query($conn, $sql);
@@ -61,20 +61,20 @@
 
       if($count>0)
       {
-        // dados encontrado da tabela comida/food
+        // dados encontrado da tabela comida/produto
         while($row=mysqli_fetch_assoc($res))
         {
           $id = $row['id'];
-          $title = $row['title'];
-          $price = $row['price'];
+          $titulo = $row['titulo'];
+          $descricao = $row['descricao'];
           $image_name = $row['image_name'];
-          $feature = $row['feature'];
+          $destaque = $row['destaque'];
           $active = $row['active'];
           ?>
           <tr>
             <td><?php echo $sn++; ?></td>
-            <td><?php echo $title; ?></td>
-            <td><?php echo $price; ?></td>
+            <td><?php echo $titulo; ?></td>
+            <td><?php echo $descricao; ?></td>
             <td><?php 
             //
             if($image_name=="")
@@ -91,11 +91,11 @@
             }
             
             ?></td>
-            <td><?php echo $feature; ?></td>
+            <td><?php echo $destaque; ?></td>
             <td><?php echo $active; ?></td>
             <td>
               <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/atualizar-produto.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>">Atualizar</a>
-              <a class="btn-danger" href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>">Excluir</a></td>
+              <a class="btn-danger" href="<?php echo SITEURL; ?>admin/delete-produto.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>">Excluir</a></td>
           </tr>
           <?php
         }

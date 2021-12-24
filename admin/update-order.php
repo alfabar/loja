@@ -25,29 +25,29 @@
                 //detalhes disponivel a tabela esta preparada para exibir dados
                 $row=mysqli_fetch_assoc($res);
 
-                $food = $row['food'];
-                $price = $row['price'];
+                $produto = $row['produto'];
+                $descricao = $row['descricao'];
                 $qtd = $row['qtd'];
                 $total = $row['total'];
                 $status = $row['status'];
-                $custumer_name = $row['custumer_name'];
-                $custumer_contact = $row['custumer_contact'];
-                $custumer_email = $row['custumer_email'];
-                $custumer_address = $row['custumer_address'];
+                $cliente_nome = $row['cliente_nome'];
+                $cliente_contato = $row['cliente_contato'];
+                $cliente_email = $row['cliente_email'];
+                $cliente_endereco = $row['cliente_endereco'];
 
             }
             else
             {
                 // Detalhes nãodisponivel
                 //redirecionar para pagina gerenciar produto
-                header('location:'.SITEURL.'admin/manage-order.php');
+                header('location:'.SITEURL.'admin/gerenciar-order.php');
 
             }            
         }
         else
         {
             //redirecionar para o site
-            header('location:'.SITEURL.'admin/manage-order.php');
+            header('location:'.SITEURL.'admin/gerenciar-order.php');
         }
         
         ?>
@@ -55,11 +55,11 @@
             <table class="tbl-30">
                 <tr>
                     <td>Nome Produto</td>
-                    <td><?php echo $food; ?></td>
+                    <td><?php echo $produto; ?></td>
                 </tr>
                 <tr>
                     <td>Preço: </td>
-                    <td><?php echo $price; ?></td>
+                    <td><?php echo $descricao; ?></td>
                 </tr>
                 <tr>
                     <td>Quantidade</td>
@@ -80,31 +80,31 @@
                 <tr>
                     <td>Nome Cliente: </td>
                     <td>
-                        <input type="text" name="custumer_name" value="<?php echo $custumer_name; ?>">
+                        <input type="text" name="cliente_nome" value="<?php echo $cliente_nome; ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>Contato: </td>
                     <td>
-                        <input type="text" name="custumer_contact" value="<?php echo $custumer_contact; ?>">
+                        <input type="text" name="cliente_contato" value="<?php echo $cliente_contato; ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>Email: </td>
                     <td>
-                        <input type="text" name="custumer_email" value="<?php echo $custumer_email; ?>">
+                        <input type="text" name="cliente_email" value="<?php echo $cliente_email; ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>Nome Cliente: </td>
                     <td>
-                        <textarea name="custumer_address" id="" cols="30" rows="5"><?php echo $custumer_address; ?></textarea>
+                        <textarea name="cliente_endereco" id="" cols="30" rows="5"><?php echo $cliente_endereco; ?></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
-                        <input type="hidden" name="price" value="<?php echo $price; ?>">
+                        <input type="hidden" name="descricao" value="<?php echo $descricao; ?>">
                         <input type="submit" name="atualizar" value="Atualizar" class="btn-secondary">
                     </td>
                 </tr>
@@ -118,29 +118,29 @@
             //echo "clicado";
             //Pegar todos os valores do formulario
                 $id = $_POST['id'];
-                $price = $_POST['price'];
+                $descricao = $_POST['descricao'];
                 $qtd = $_POST['qtd'];
 
-                $total = $price * $qtd;
+                $total = $descricao * $qtd;
                 
                 $status = $_POST['status'];
 
-                $custumer_name = $_POST['custumer_name'];
-                $custumer_contact = $_POST['custumer_contact'];
-                $custumer_email = $_POST['custumer_email'];
-                $custumer_address = $_POST['custumer_address'];
+                $cliente_nome = $_POST['cliente_nome'];
+                $cliente_contato = $_POST['cliente_contato'];
+                $cliente_email = $_POST['cliente_email'];
+                $cliente_endereco = $_POST['cliente_endereco'];
 
 
                 // Atualizar os valores 
 
-                $sql3 = "UPDATE `tbl_order` SET qtd = $qtd, total = $total, status = '$status', custumer_name = '$custumer_name', custumer_contact = '$custumer_contact', custumer_email = '$custumer_email', custumer_address = '$custumer_address', WHERE id=$id";
+                $sql3 = "UPDATE `tbl_order` SET qtd = $qtd, total = $total, status = '$status', cliente_nome = '$cliente_nome', cliente_contato = '$cliente_contato', cliente_email = '$cliente_email', cliente_endereco = '$cliente_endereco', WHERE id=$id";
                 //Executa a query
                 $res2 = mysqli_query($conn, $sql3);
 
                 if($res2==true)
                 {
                     $_SESSION['update'] = "<div class='success'>Pedido atualizado com sucesso </div>";
-                    header('location:'.SITEURL.'admin/manage-order.php');
+                    header('location:'.SITEURL.'admin/gerenciar-order.php');
                 }
                 else
                 {
@@ -148,7 +148,7 @@
                     //Falhou ao atualizar
                     $_SESSION['update'] = "<div class='error'>Pedido Falhou ao ser atualizado </div>";
                   
-                    header('location:'.SITEURL.'admin/manage-order.php');
+                    header('location:'.SITEURL.'admin/gerenciar-order.php');
                 }
 
                 ///redirecionar

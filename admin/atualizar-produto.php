@@ -8,26 +8,26 @@
         $id = $_GET['id'];
 
         //SQL query que vai selecionar produto selecionado
-        $sql2 = "SELECT * FROM tbl_food WHERE id=$id";
+        $sql2 = "SELECT * FROM tbl_produto WHERE id=$id";
         
         $res2 = mysqli_query($conn,$sql2);
 
         //Obter a base de dados
         $row2 = mysqli_fetch_assoc($res2);
 
-        $title = $row2['title'];
-        $description = $row2['description'];
-        $price = $row2['price'];
-        $current_image = $row2['image_name'];
-        $current_category = $row2['category_id'];
-        $feature = $row2['feature'];
-        $active = $row2['active'];
+        $titulo = $row2['titulo'];
+        $descricao = $row2['descricao'];
+        $descricao = $row2['descricao'];
+        $atual_image = $row2['image_name'];
+        $atual_category = $row2['category_id'];
+        $destaque = $row2['destaque'];
+        $ativo = $row2['ativo'];
 
     } 
     else
     {
         //Redirecionar painel usuario
-        header('location:'.SITEURL.'admin/manage-food.php');
+        header('location:'.SITEURL.'admin/manage-produto.php');
     }
 
 ?>
@@ -40,26 +40,26 @@
                 <tr>
                     <td>Titulo:</td>
                     <td>
-                        <input type="text" name="title" value="<?php echo $title; ?>">
+                        <input type="text" name="titulo" value="<?php echo $titulo; ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>Descrição</td>
                     <td>
-                        <textarea name="description" id="" cols="30" rows="5" ><?php echo $description; ?></textarea>
+                        <textarea name="descricao" id="" cols="30" rows="5" ><?php echo $descricao; ?></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>Preço:</td>
                     <td>
-                        <input type="number" name="price" value="<?php echo $price; ?>">
+                        <input type="number" name="descricao" value="<?php echo $descricao; ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>Imagem atual</td>
                     <td>
                         <?php 
-                        if($current_image == "")
+                        if($atual_image == "")
                         {
                             //imagen não disponivel
                             echo "<div class=''>Imagen não disponivel</div>";
@@ -68,7 +68,7 @@
                         {
                             //imagen disponivel
                             ?>
-                            <img src="<?php echo SITEURL; ?>images/produtos/<?php echo $current_image; ?>" alt="<?php echo $title; ?>" width="100px">
+                            <img src="<?php echo SITEURL; ?>images/produtos/<?php echo $atual_image; ?>" alt="<?php echo $titulo; ?>" width="100px">
 
                             <?php
                         }
@@ -85,7 +85,7 @@
                             <?php 
 
                             //consultar dados do banco de tabela categoria
-                            $sql = "SELECT * FROM tbl_category WHERE active='Yes'";
+                            $sql = "SELECT * FROM tbl_category WHERE ativo='Yes'";
 
                             //executar a query
                             $res = mysqli_query($conn, $sql);
@@ -99,12 +99,12 @@
                                 //categoria disponivel
                                 while($row=mysqli_fetch_assoc($res))
                                 {
-                                    $category_title = $row['title'];
+                                    $category_titulo = $row['titulo'];
                                     $category_id = $row['id'];
 
                                     // Categoria não disponivel
                                     ?>
-                                    <option <?php if($current_category==$category_id) {echo "Selecionado";} ?> value='<?php echo $category_id; ?>'><?php echo $category_title; ?></option>";
+                                    <option <?php if($atual_category==$category_id) {echo "Selecionado";} ?> value='<?php echo $category_id; ?>'><?php echo $category_titulo; ?></option>";
                                     <?php
                                    
                                
@@ -123,21 +123,21 @@
                 <tr>
                     <td>Destaque:</td>
                     <td>
-                        <input <?php if($feature=="Yes") {echo "checked";} ?> type="radio" name="feature" value="Yes"> Sim
-                        <input <?php if($feature=="No") {echo "checked";} ?> type="radio" name="feature" value="No"> Não
+                        <input <?php if($destaque=="Yes") {echo "checked";} ?> type="radio" name="destaque" value="Yes"> Sim
+                        <input <?php if($destaque=="No") {echo "checked";} ?> type="radio" name="destaque" value="No"> Não
                     </td>
                 </tr>
                 <tr>
                     <td>Ativo:</td>
                     <td>
-                        <input <?php if($active=="Yes") {echo "checked";} ?> type="radio" name="active" value="Yes"> Sim
-                        <input <?php if($active=="No") {echo "checked";} ?> type="radio" name="active" value="No"> Não
+                        <input <?php if($ativo=="Yes") {echo "checked";} ?> type="radio" name="ativo" value="Yes"> Sim
+                        <input <?php if($ativo=="No") {echo "checked";} ?> type="radio" name="ativo" value="No"> Não
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
-                        <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
+                        <input type="hidden" name="atual_image" value="<?php echo $atual_image; ?>">
                         <input type="submit" name="submit" value="Atualizar" class="btn-secundary">
                     </td>
                 </tr>
@@ -151,13 +151,13 @@
             //echo "botão clicado";
             //1º Obter os detalhes do formulario
             $id = $_POST['id'];
-            $title = $_POST['title'];
-            $description = $_POST['description'];
-            $price = $_POST['price'];
-            $current_image = $_POST['current_image'];
+            $titulo = $_POST['titulo'];
+            $descricao = $_POST['descricao'];
+            $descricao = $_POST['descricao'];
+            $atual_image = $_POST['atual_image'];
             $category = $_POST['category'];
-            $feature = $_POST['feature'];
-            $active = $_POST['active'];
+            $destaque = $_POST['destaque'];
+            $ativo = $_POST['ativo'];
 
             if(isset($_FILES['image']['name']))
             {
@@ -184,7 +184,7 @@
                         //falhou sessão
                         $_SESSION['upload'] = "<div class='error'>Erro ao enviar</div>";
                         //redirecionar
-                        header('location:'.SITEURL.'admin/manage-food.php');
+                        header('location:'.SITEURL.'admin/manage-produto.php');
                         //logo apos parar o processo
                         die();
 
@@ -192,11 +192,11 @@
                     }
                      //3º Remover a imagem se uma nova fou carregada
                     // B.Remove a imagem atual
-                    if($current_image!="")
+                    if($atual_image!="")
                     {
                         //Imagen disponivel
                         //Remove a imagem
-                        $remove_path = "../images/produtos/".$current_image;
+                        $remove_path = "../images/produtos/".$atual_image;
 
                         $remove = unlink($remove_path);
 
@@ -205,32 +205,32 @@
                         {
                             $_SESSION['remove-failed'] = "<div class='error'>Erro ao Remover</div>";
                             //Redirecionar e parar o proceso
-                            header('location:'.SITEURL.'admin/manage-food.php');
+                            header('location:'.SITEURL.'admin/manage-produto.php');
                             die();
                         }
                     }
                 }
                 else
                 {
-                    $image_name = $current_image;
+                    $image_name = $atual_image;
                 }
             }
             else
             {
-                $image_name = $current_image;
+                $image_name = $atual_image;
             }
             //2º enviar imagem selecionada           
 
             
             //4º Atualizar banco de dados 
-            $sql3 = "UPDATE tbl_food SET
-               title = '$title',
-               description = '$description',
-               price = $price,
+            $sql3 = "UPDATE tbl_produto SET
+               titulo = '$titulo',
+               descricao = '$descricao',
+               descricao = $descricao,
                image_name = '$image_name',
                category_id = '$category',
-               feature = '$feature',
-               active = '$active'
+               destaque = '$destaque',
+               ativo = '$ativo'
                WHERE id=$id           
             ";
 
@@ -243,13 +243,13 @@
             {
                 //query executada
                 $_SESSION['update'] = "<div class='success'>Produto atualizado com sucesso</div>";
-                header('location:'.SITEURL.'admin/manage-food.php');
+                header('location:'.SITEURL.'admin/manage-produto.php');
             }
             else
             {
                 //Falhou ao carregar imagem
                 $_SESSION['update'] = "<div class='error'>Erro ao atualizar</div>";
-                header('location:'.SITEURL.'admin/manage-food.php');
+                header('location:'.SITEURL.'admin/manage-produto.php');
             }
 
             

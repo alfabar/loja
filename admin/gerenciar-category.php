@@ -53,7 +53,7 @@
         <th>S.N.</th>
         <th>Titulo </th>
         <th>Imagen</th>
-        <th>Feature</th>
+        <th>destaque</th>
         <th>Ativo</th>
         <th>Action</th>
       </tr>
@@ -79,15 +79,15 @@
         while($row=mysqli_fetch_assoc($res))
         {
           $id = $row['id'];
-          $title = $row['title'];
+          $titulo = $row['titulo'];
           $image_name = $row['image_name'];
-          $featured = $row['featured'];
-          $active = $row['active'];
+          $destaque = $row['destaque'];
+          $ativo = $row['ativo'];
 
           ?>
           <tr>
             <td><?php echo $sn++; ?></td>
-            <td><?php echo $title; ?></td>
+            <td><?php echo $titulo; ?></td>
             <td><?php 
             if ($image_name!="")
             {
@@ -113,8 +113,8 @@
             
             
             ?></td>
-            <td><?php echo $featured; ?></td>
-            <td><?php echo $active; ?></td>
+            <td><?php echo $destaque; ?></td>
+            <td><?php echo $ativo; ?></td>
             <td> 
               <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>">Atualizar</a>
               <a class="btn-danger" href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>">Excluir</a>

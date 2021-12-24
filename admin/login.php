@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Login - Comida sistema Pedido</title>
+        <titulo>Login - Comida sistema Pedido</titulo>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../css/admin.css">
@@ -34,10 +34,10 @@
             ?>
             <!-- Formulario de Login aqui -->
             <form class="text-center" action="" method="POST">
-                <label for="username">Usuário:</label>
-                <input type="text" name="username" placeholder="Entre com Usuário"><br><br>
-                <label for="password">Senha:</label>
-                <input type="password" name="password" placeholder="Senha"><br><br>
+                <label for="nomeusuario">Usuário:</label>
+                <input type="text" name="nomeusuario" placeholder="Entre com Usuário"><br><br>
+                <label for="senha">Senha:</label>
+                <input type="senha" name="senha" placeholder="Senha"><br><br>
 
                 <input type="submit" name="submit" value="login" class="btn-primary">
             </form>
@@ -55,16 +55,16 @@ if(isset($_POST['submit']))
 {
     //processar para o login e senha na tela de usuario
     //1º Obter dados do form para login
-    //$username = $_POST['username'];
-    //$password = $_POST['password'];
+    //$nomeusuario = $_POST['nomeusuario'];
+    //$senha = $_POST['senha'];
 
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $raw_password = md5($_POST['password']);
-    $password = mysqli_real_escape_string($conn, $raw_password);
+    $nomeusuario = mysqli_real_escape_string($conn, $_POST['nomeusuario']);
+    $raw_senha = md5($_POST['senha']);
+    $senha = mysqli_real_escape_string($conn, $raw_senha);
 
 
     //2º criar consulta SQL que verifica se nome e usuario existe
-    $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
+    $sql = "SELECT * FROM tbl_admin WHERE nomeusuario='$nomeusuario' AND senha='$senha'";
 
     // 3º Executar a Query
     $res = mysqli_query($conn, $sql);
@@ -77,7 +77,7 @@ if(isset($_POST['submit']))
     {
         //Usuario disponivel
         $_SESSION['login'] = "<div class='success'>Login com sucesso</div>";
-        $_SESSION['user'] = $username; // para verificar se o usuario esta conectado
+        $_SESSION['user'] = $nomeusuario; // para verificar se o usuario esta conectado
         //redirecionar para o painel administrador
         header('location:'.SITEURL.'admin/');
     }

@@ -18,17 +18,17 @@
             <table class="tbl-30">
                 <tr>
                     <td>Nome completo:</td>
-                    <td><input type="text" name="full_name" placeholder="nome completo"></td>
+                    <td><input type="text" name="nome_completo" placeholder="nome completo"></td>
 
                 </tr>
                 <tr>
                     <td>Nome Usuario:</td>
-                    <td><input type="text" name="username" placeholder="nome usuario"></td>
+                    <td><input type="text" name="nomeusuario" placeholder="nome usuario"></td>
 
                 </tr>
                 <tr>
                     <td>Senha:</td>
-                    <td><input type="password" name="password" placeholder="senha"></td>
+                    <td><input type="senha" name="senha" placeholder="senha"></td>
 
                 </tr>
                 <tr>
@@ -63,17 +63,17 @@ if (isset($_POST['submit'])) {
 
     // 1º Obter os dados do formulario
 
-    $full_name = $_POST['full_name'];
-    $username = $_POST['username'];
-    $password = md5($_POST['password']); //md5 tag de criptografia de segurança
+    $nome_completo = $_POST['nome_completo'];
+    $nomeusuario = $_POST['nomeusuario'];
+    $senha = md5($_POST['senha']); //md5 tag de criptografia de segurança
 
     // 2º Criar consulta SQL para salvar no banco de dados
 
 
     $sql = "INSERT INTO tbl_admin SET
-full_name='$full_name',
-username='$username',
-password='$password'
+nome_completo='$nome_completo',
+nomeusuario='$nomeusuario',
+senha='$senha'
 ";
 
 

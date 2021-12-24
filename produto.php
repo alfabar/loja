@@ -22,7 +22,7 @@
         <h2 class="text-center">Menu Produtos</h2>
         <?php
         //mostrar produtos ativos
-        $sql = "SELECT * FROM tbl_food WHERE active='Yes'";
+        $sql = "SELECT * FROM tbl_produto WHERE active='Yes'";
 
         //executar a query
         $res = mysqli_query($conn, $sql);
@@ -66,7 +66,7 @@
                         </p>
                         <br>
 
-                        <a href="<?php echo SITEURL; ?>pedidos.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Pedir Agora</a>
+                        <a href="<?php echo SITEURL; ?>pedidos.php?produto_id=<?php echo $id; ?>" class="btn btn-primary">Pedir Agora</a>
                     </div>
                 </div>
 
@@ -83,6 +83,6 @@
     </div>
 
 </section>
-<!-- fOOD Menu Section Ends Here -->
+<!-- produto Menu Section Ends Here -->
 
 <?php include('partials-front/footer.php') ?>

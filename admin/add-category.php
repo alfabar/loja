@@ -22,8 +22,8 @@
             <table class="tbl-30">
                 <tr>
                     <td>
-                        <label for="title">Nome Categoria</label>
-                        <input type="text" name="title" placeholder="Categoria nome">
+                        <label for="titulo">Nome Categoria</label>
+                        <input type="text" name="titulo" placeholder="Categoria nome">
                     </td>
                 </tr>
                 <tr>
@@ -34,16 +34,16 @@
                 </tr>
                 <tr>
                     <td>
-                        <label for="featured">Destaque: </label>
-                        <input type="radio" name="featured" value="Yes"> Sim
-                        <input type="radio" name="featured" value="No"> Não
+                        <label for="destaque">Destaque: </label>
+                        <input type="radio" name="destaque" value="Yes"> Sim
+                        <input type="radio" name="destaque" value="No"> Não
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <label for="active">Ativo: </label>
-                        <input type="radio" name="active" value="Yes"> Sim
-                        <input type="radio" name="active" value="No"> Não
+                        <label for="ativo">Ativo: </label>
+                        <input type="radio" name="ativo" value="Yes"> Sim
+                        <input type="radio" name="ativo" value="No"> Não
                     </td>
                 </tr>
                 <tr>
@@ -62,28 +62,28 @@
         {
             //echo "clicado";
             //1º Obtendo valores pela categoria
-            $title = $_POST['title'];
+            $titulo = $_POST['titulo'];
 
 
             //Para os botoes radio e preciso se selecionado ou não
 
-            if(isset($_POST['featured']))
+            if(isset($_POST['destaque']))
             {
                 //Obter valores do formulario
-                $feature = $_POST['featured'];
+                $destaque = $_POST['destaque'];
             }
             else
             {
                 //defina os valores padrao 
-                $feature = "No";
+                $destaque = "No";
             }
-            if(isset($_POST['active']))
+            if(isset($_POST['ativo']))
             {
-                $active = $_POST['active'];
+                $ativo = $_POST['ativo'];
             }
             else
             {
-                $active = "No";
+                $ativo = "No";
             }
 
             // Check se a imagem selecionada ou não e definida
@@ -102,13 +102,13 @@
                 if($image_name != "")
                 {                
                 //Auto renomear a imagem
-                //obter a extenção da imagem (jpg, png, gif, etc) e.g "food1.jpg"
+                //obter a extenção da imagem (jpg, png, gif, etc) e.g "produto1.jpg"
 
                 $ext = end(explode('.',$image_name));
 
                 //Renomear a imagem
 
-                $image_name = "Food_Category_".rand(000, 999).'.'.$ext;
+                $image_name = "produto_Category_".rand(000, 999).'.'.$ext;
 
                 $source_path = $_FILES['image']['tmp_name'];
 
@@ -142,10 +142,10 @@
 
             //2º Criar a Query Sql para inserir a categoria no banco de dados
             $sql = "INSERT INTO tbl_category SET
-                title='$title',
+                titulo='$titulo',
                 image_name='$image_name',
-                featured='$featured',
-                active='$active'            
+                destaque='$destaque',
+                ativo='$ativo'            
             ";
             // 3º Executar a Query para salvar
             $res = mysqli_query($conn, $sql);

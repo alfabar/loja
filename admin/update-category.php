@@ -24,10 +24,10 @@
             {
                 //Pedar os dados
                 $row = mysqli_fetch_assoc($res);
-                $title = $row['title'];
-                $current_image = $row['image_name'];
-                $featured = $row['featured'];
-                $active = $row['active'];
+                $titulo = $row['titulo'];
+                $atual_image = $row['image_name'];
+                $destaque = $row['destaque'];
+                $ativo = $row['ativo'];
 
             }
             else
@@ -48,19 +48,19 @@
             <table class="tbl-30">
                 <tr>
                     <td>
-                        <label for="title">Nome Categoria</label>
-                        <input type="text" name="title" value="<?php echo $title; ?>">
+                        <label for="titulo">Nome Categoria</label>
+                        <input type="text" name="titulo" value="<?php echo $titulo; ?>">
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <?php 
-                        if($current_image !="")
+                        if($atual_image !="")
                         {
                             //Mostrar a imagem atual
                             ?>
 
-                            <img src="<?php echo SITEURL; ?>images/category/<?php echo $current_image ?>" alt="" srcset="" width="150px">
+                            <img src="<?php echo SITEURL; ?>images/category/<?php echo $atual_image ?>" alt="" srcset="" width="150px">
                             <?php
                         }
                         else
@@ -76,19 +76,19 @@
                 </tr>
                 <tr>
                     <td>
-                        <input <?php if($featured=="Yes"){echo "selecionado";} ?> type="radio" name="featured" value="Yes"> Sim
-                        <input <?php if($featured=="No"){echo "selecionado";} ?> type="radio" name="featured" value="No"> Não
+                        <input <?php if($destaque=="Yes"){echo "selecionado";} ?> type="radio" name="destaque" value="Yes"> Sim
+                        <input <?php if($destaque=="No"){echo "selecionado";} ?> type="radio" name="destaque" value="No"> Não
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input <?php if($active=="Yes"){echo "selecionado";} ?> type="radio" name="active" value="Yes"> Sim
-                        <input <?php if($active=="No"){echo "selecionado";} ?> type="radio" name="active" value="No"> Não
+                        <input <?php if($ativo=="Yes"){echo "selecionado";} ?> type="radio" name="ativo" value="Yes"> Sim
+                        <input <?php if($ativo=="No"){echo "selecionado";} ?> type="radio" name="ativo" value="No"> Não
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
+                        <input type="hidden" name="atual_image" value="<?php echo $atual_image; ?>">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <input type="submit" name="submit" value="Update Category" class="btn-secundary">
                     </td>
@@ -103,10 +103,10 @@
             //echo "clicado";
             // 1º Obter Ttodos os valores do formulario
             $id = $_POST['id'];
-            $title = $_POST['title'];
-            $current_image = $_POST['current_image'];
-            $featured = $_POST['featured'];
-            $active = $_POST['active'];
+            $titulo = $_POST['titulo'];
+            $atual_image = $_POST['atual_image'];
+            $destaque = $_POST['destaque'];
+            $ativo = $_POST['ativo'];
 
             //2º Atualizando a imagem selecionada
             //Verificar se a imagem foi selecionada
@@ -122,13 +122,13 @@
                     //Enviar nova imagem
                     //Remover a imagem atual
                     //Auto renomear a imagem
-                    //obter a extenção da imagem (jpg, png, gif, etc) e.g "food1.jpg"
+                    //obter a extenção da imagem (jpg, png, gif, etc) e.g "produto1.jpg"
 
                     $ext = end(explode('.',$image_name));
 
                     //Renomear a imagem
 
-                    $image_name = "Food_Category_".rand(000, 999).'.'.$ext;
+                    $image_name = "produto_Category_".rand(000, 999).'.'.$ext;
 
                     $source_path = $_FILES['image']['tmp_name'];
 
@@ -150,9 +150,9 @@
                         die();
                     }
                     //B. Remover a imagem da pasta e servidor
-                    if($current_image!="")
+                    if($atual_image!="")
                     {
-                        $remove_path = "../images/category/".$current_image;
+                        $remove_path = "../images/category/".$atual_image;
 
                         $remove = unlink($remove_path);
 
@@ -171,20 +171,20 @@
                 }
                 else
                 {
-                    $image_name = $current_image;
+                    $image_name = $atual_image;
                 }
             }
             else
             {
-                $image_name = $current_image;
+                $image_name = $atual_image;
             }
 
             // 3º Atualizar o banco de dados
             $sql2 = "UPDATE tbl_category SET
-            title = '$title',
+            titulo = '$titulo',
             image_name = '$image_name',
-            featured = '$featured',
-            active = '$active'
+            destaque = '$destaque',
+            ativo = '$ativo'
             WHERE id=$id            
             ";
             //Executar a consulta

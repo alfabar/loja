@@ -17,18 +17,18 @@
         <tr>
             <td>Titulo:</td>
             <td>
-                <input type="text" name="title" placeholder="Titulo">
+                <input type="text" name="titulo" placeholder="Titulo">
             </td>
         </tr>
         <tr>
             <td>Descrição:</td>
-            <td><textarea type="text" name="description" cols="30" rows="5" placeholder="descrição do prato"></textarea></td>
+            <td><textarea type="text" name="descricao" cols="30" rows="5" placeholder="descrição do prato"></textarea></td>
             
         </tr>
         <tr>
             <td>Preço:</td>
             <td>
-                <input type="number" name="price">
+                <input type="number" name="descricao">
             </td>
         </tr>
         <tr>
@@ -44,7 +44,7 @@
                     <?php
                     // codigo para visualizar categorias do banco de dados
                     // 1º Criar uma Query consulta para ativat consulta no banco de dados
-                    $sql = "SELECT * FROM tbl_category WHERE active='Yes'";
+                    $sql = "SELECT * FROM tbl_category WHERE ativo='Yes'";
                     $res = mysqli_query($conn, $sql); 
                     
                     
@@ -60,9 +60,9 @@
                         {
                             //obter detalhes da categoria
                             $id = $row['id'];
-                            $title = $row['title'];
+                            $titulo = $row['titulo'];
                             ?>
-                                <option value="<?php echo $id; ?>"><?php echo $title; ?></option>
+                                <option value="<?php echo $id; ?>"><?php echo $titulo; ?></option>
 
 
                             <?php
@@ -83,20 +83,20 @@
         <tr>
             <td>Destaque:</td>
             <td>
-                <input type="radio" name="feature" value="Yes"> Sim
-                <input type="radio" name="feature" value="No"> Não
+                <input type="radio" name="destaque" value="Yes"> Sim
+                <input type="radio" name="destaque" value="No"> Não
             </td>
         </tr>
         <tr>
             <td>Ativo:</td>
             <td>
-                <input type="radio" name="active" value="Yes"> Sim
-                <input type="radio" name="active" value="No"> Não
+                <input type="radio" name="ativo" value="Yes"> Sim
+                <input type="radio" name="ativo" value="No"> Não
             </td>           
         </tr>
         <tr>
             <td colspan="2">
-                <input type="submit" name="submit" value="Add Food" class="btn-secundary"> 
+                <input type="submit" name="submit" value="Add produto" class="btn-secundary"> 
             </td>
         </tr>
     </table>   
@@ -107,27 +107,27 @@
   {
       //echo "Clicado";
       //1º Obter dados do formulario
-      $title = $_POST['title'];
-      $description = $_POST['description'];
-      $price = $_POST['price'];
+      $titulo = $_POST['titulo'];
+      $descricao = $_POST['descricao'];
+      $descricao = $_POST['descricao'];
       $category = $_POST['category'];
 
       // Verificar se o botão Radio dos Destaque está clicado ne não manter padrão
-      if(isset($_POST['feature']))
+      if(isset($_POST['destaque']))
       {
-          $feature = $_POST['feature'];
+          $destaque = $_POST['destaque'];
       }
       else
       {
-          $feature = "No";
+          $destaque = "No";
       }
-      if(isset($_POST['active']))
+      if(isset($_POST['ativo']))
       {
-          $active = $_POST['active'];
+          $ativo = $_POST['ativo'];
       }
       else
       {
-          $active = "No";
+          $ativo = "No";
       }
       //2º atualizar imagens no banco de dados
       //Verificar se a imagem selecionada esta clicada
@@ -166,7 +166,7 @@
                   //Se falhou carregar imagem
                   // Redirecionar para adicionar
                   $_SESSION['upload'] = "<div class='error'>Falhou ao carregar imagem do Produto</div>";
-                  header('location:'.SITEURL.'admin/add-food.php');
+                  header('location:'.SITEURL.'admin/add-produto.php');
                   //Parar o processo
                   die();
               }
@@ -182,14 +182,14 @@
 
       // Criar uma consulta Sql para inserir os dados no banco de dados
       //para o valor numerico não precisamos passar entre aspas '' categoria e preço aprende seu jumento essa e a hora mas para valor de string e obrigado a passare
-      $sql2 = "INSERT INTO tbl_food SET
-      title = '$title',
-      description = '$description',
-      price = $price,
+      $sql2 = "INSERT INTO tbl_produto SET
+      titulo = '$titulo',
+      descricao = '$descricao',
+      descricao = $descricao,
       image_name = '$image_name',
       category_id = $category,
-      feature = '$feature',
-      active = '$active'      
+      destaque = '$destaque',
+      ativo = '$ativo'      
       ";
       //Executar a consulta ao banco
       $res2 = mysqli_query($conn, $sql2);
@@ -199,13 +199,13 @@
       {
           // Dados inseridos com sucesso
           $_SESSION['add'] = "<div class='success'>Produto adicionado com sucesso</div>";
-          header('location:'.SITEURL.'admin/manage-food.php');
+          header('location:'.SITEURL.'admin/manage-produto.php');
       }
       else
       {
           //Falhou ao inserir dados
           $_SESSION['add'] = "<div class='error'>Falhou ao adicionar produto</div>";
-          header('location:'.SITEURL.'admin/manage-food.php');
+          header('location:'.SITEURL.'admin/manage-produto.php');
       }
   }  
     ?>    

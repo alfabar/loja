@@ -75,16 +75,16 @@
             // e o loop while será executado enquanto tivermos dados no banco de dados
             // obter dados individuais
             $id = $rows['id'];
-            $full_name = $rows['full_name'];
-            $username = $rows['username'];
+            $nome_completo = $rows['nome_completo'];
+            $nomeusuario = $rows['nomeusuario'];
 
             // exibe os valores na tabela
       ?>
 
             <tr>
               <td><?php echo $sn++; ?></td>
-              <td><?php echo $full_name; ?></td>
-              <td><?php echo $username; ?></td>
+              <td><?php echo $nome_completo; ?></td>
+              <td><?php echo $nomeusuario; ?></td>
               <td> 
               <a class="btn-primary" href="<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id; ?>">Trocar senha</a>
                 <a class="btn-secundary" href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>">Atualizar</a>
