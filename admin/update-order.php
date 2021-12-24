@@ -51,7 +51,7 @@
         }
         
         ?>
-        <form action="" method="post">
+        <form action="" method="POST">
             <table class="tbl-30">
                 <tr>
                     <td>Nome Produto</td>
@@ -69,8 +69,8 @@
                 <tr>
                     <td>Status</td>
                     <td>
-                        <select name="status" id="">
-                            <option <?php if ($status=="Pedido Recebido") {echo "selected";} ?> value="Pedido Recebido">Pedido Recebido</option>
+                        <select name="status" id="status">
+                            <option <?php if ($status=="Realizado") {echo "selected";} ?> value="Realizado">Realizado</option>
                             <option <?php if ($status=="Em Rota de entrega") {echo "selected";} ?> value="Em Rota de entrega">Em Rota de entrega</option>
                             <option <?php if ($status=="Entregue") {echo "selected";} ?> value="Entregue">Entregue</option>
                             <option <?php if ($status=="Cancelado") {echo "selected";} ?> value="Cancelado">Cancelado</option>
@@ -116,7 +116,7 @@
 
         if(isset($_POST['submit']))
         {
-            //echo "clicado";
+            echo "clicado";
             //Pegar todos os valores do formulario
                 $id = $_POST['id'];
                 $price = $_POST['price'];
@@ -143,6 +143,8 @@
                 WHERE id=$id";
 
                 //Executa a query
+                $res2 = mysqli_query($conn, $sql2);
+
                 if($res2==true)
                 {
                     $_SESSION['update'] = "<div class='success'>Pedido atualizado com sucesso </div>";
@@ -150,10 +152,13 @@
                 }
                 else
                 {
+                    //echo "Falhou";
                     //Falhou ao atualizar
                     $_SESSION['update'] = "<div class='error'>Pedido Falhou ao ser atualizado </div>";
+                  
                     header('location:'.SITEURL.'admin/manage-order.php');
                 }
+
                 ///redirecionar
         }
         ?>
