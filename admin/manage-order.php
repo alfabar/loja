@@ -71,7 +71,32 @@
           <td><?php echo $qtd; ?></td>
           <td><?php echo $total; ?></td>
           <td><?php echo $order_date; ?></td>
-          <td><?php echo $status; ?></td>
+
+          <td>
+            <?php 
+            ////realizado em rota 
+            if($status=="Realizado")
+            {
+              echo "<label>$status</label>";
+            }
+            elseif($status=="Em Rota de entrega")
+            {
+              echo "<label style='color: orange;'>$status</label>";
+
+            }
+            elseif($status=="Entregue")
+            {
+              echo "<label style='color: green;'>$status</label>";
+
+            }
+            elseif($status=="Cancelado")
+            {
+              echo "<label style='color: red;'>$status</label>";
+
+            }      
+            ?>
+          </td>
+
           <td><?php echo $custumer_name; ?></td>
           <td><?php echo $custumer_contact; ?></td>
           <td><?php echo $custumer_email; ?></td>
