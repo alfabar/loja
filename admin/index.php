@@ -12,27 +12,42 @@
             }           
             ?>
           <div class="col-4 text-center">
-
           <?php
-
           //executar a consulta na tabela do banco de dados
-
           $sql = "SELECT * FROM tbl_category";
-
-
-
+          //resposta da consulta
+          $res = mysqli_query($conn, $sql);
+          //contar as colunas 
+          $count = mysqli_num_rows($res);
           ?>
-              <h1>5</h1>
+              <h1><?php echo $count; ?></h1>
               <br>
               Categorias
           </div>
           <div class="col-4 text-center">
-              <h1>5</h1>
+          <?php
+          //executar a consulta na tabela do banco de dados
+          $sql2 = "SELECT * FROM tbl_food";
+          //resposta da consulta
+          $res2 = mysqli_query($conn, $sql2);
+          //contar as colunas 
+          $count2 = mysqli_num_rows($res2);
+          ?>
+              <h1><?php echo $count2; ?></h1>
               <br>
               Produtos
           </div>
           <div class="col-4 text-center">
-              <h1>5</h1>
+          <?php
+          //executar a consulta na tabela do banco de dados
+          $sql3 = "SELECT * FROM tbl_order";
+          //resposta da consulta
+          $res3 = mysqli_query($conn, $sql3);
+          //contar as colunas 
+          $count3 = mysqli_num_rows($res3);
+          ?>
+              
+              <h1><?php echo $count3; ?></h1>
               <br>
               Total pedidos
           </div>
