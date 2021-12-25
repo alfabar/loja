@@ -19,7 +19,7 @@
         $descricao = $row2['descricao'];
         $descricao = $row2['descricao'];
         $atual_image = $row2['image_name'];
-        $atual_category = $row2['category_id'];
+        $atual_categoria = $row2['categoria_id'];
         $destaque = $row2['destaque'];
         $ativo = $row2['ativo'];
 
@@ -85,7 +85,7 @@
                             <?php 
 
                             //consultar dados do banco de tabela categoria
-                            $sql = "SELECT * FROM tbl_category WHERE ativo='Yes'";
+                            $sql = "SELECT * FROM tbl_categoria WHERE ativo='Yes'";
 
                             //executar a query
                             $res = mysqli_query($conn, $sql);
@@ -99,12 +99,12 @@
                                 //categoria disponivel
                                 while($row=mysqli_fetch_assoc($res))
                                 {
-                                    $category_titulo = $row['titulo'];
-                                    $category_id = $row['id'];
+                                    $categoria_titulo = $row['titulo'];
+                                    $categoria_id = $row['id'];
 
                                     // Categoria não disponivel
                                     ?>
-                                    <option <?php if($atual_category==$category_id) {echo "Selecionado";} ?> value='<?php echo $category_id; ?>'><?php echo $category_titulo; ?></option>";
+                                    <option <?php if($atual_categoria==$categoria_id) {echo "Selecionado";} ?> value='<?php echo $categoria_id; ?>'><?php echo $categoria_titulo; ?></option>";
                                     <?php
                                    
                                
@@ -155,7 +155,7 @@
             $descricao = $_POST['descricao'];
             $descricao = $_POST['descricao'];
             $atual_image = $_POST['atual_image'];
-            $category = $_POST['category'];
+            $categoria = $_POST['categoria'];
             $destaque = $_POST['destaque'];
             $ativo = $_POST['ativo'];
 
@@ -228,7 +228,7 @@
                descricao = '$descricao',
                descricao = $descricao,
                image_name = '$image_name',
-               category_id = '$category',
+               categoria_id = '$categoria',
                destaque = '$destaque',
                ativo = '$ativo'
                WHERE id=$id           

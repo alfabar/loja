@@ -6,7 +6,7 @@ if(isset($_GET['id']) AND isset($_GET['image_name']))
 {
 
     //obter o valor e deletar
-    echo "Obter valor e deletar ";
+    //echo "Obter valor e deletar ";
     $id = $_GET['id'];
     $image_name = $_GET['image_name'];
 

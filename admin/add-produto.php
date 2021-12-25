@@ -44,7 +44,7 @@
                     <?php
                     // codigo para visualizar categorias do banco de dados
                     // 1º Criar uma Query consulta para ativat consulta no banco de dados
-                    $sql = "SELECT * FROM tbl_category WHERE ativo='Yes'";
+                    $sql = "SELECT * FROM tbl_categoria WHERE ativo='Yes'";
                     $res = mysqli_query($conn, $sql); 
                     
                     
@@ -110,7 +110,7 @@
       $titulo = $_POST['titulo'];
       $descricao = $_POST['descricao'];
       $descricao = $_POST['descricao'];
-      $category = $_POST['category'];
+      $categoria = $_POST['categoria'];
 
       // Verificar se o botão Radio dos Destaque está clicado ne não manter padrão
       if(isset($_POST['destaque']))
@@ -187,7 +187,7 @@
       descricao = '$descricao',
       descricao = $descricao,
       image_name = '$image_name',
-      category_id = $category,
+      categoria_id = $categoria,
       destaque = '$destaque',
       ativo = '$ativo'      
       ";
