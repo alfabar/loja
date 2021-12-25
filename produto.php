@@ -5,7 +5,7 @@
 <section class="food-search text-center">
     <div class="container">
 
-        <form action="<?php echo SITEURL; ?>procurar-produtos.php" method="POST">
+        <form action="<?php echo SITEURL; ?>procurar-produto.php" method="POST">
             <input type="search" name="search" placeholder="Procure produtos.." required>
             <input type="submit" name="submit" value="Procurar" class="btn btn-primary">
         </form>
@@ -22,7 +22,7 @@
         <h2 class="text-center">Menu Produtos</h2>
         <?php
         //mostrar produtos ativos
-        $sql = "SELECT * FROM tbl_produto WHERE active='Yes'";
+        $sql = "SELECT * FROM tbl_produto WHERE ativo='Yes'";
 
         //executar a query
         $res = mysqli_query($conn, $sql);
@@ -36,9 +36,9 @@
             while ($row = mysqli_fetch_assoc($res)) {
                 //obter os valores 
                 $id = $row['id'];
-                $title = $row['title'];
-                $price = $row['price'];
-                $description = $row['description'];
+                $titulo = $row['titulo'];
+                $preco = $row['preco'];
+                $descricao = $row['descricao'];
                 $image_name = $row['image_name'];
         ?>
                 <div class="food-menu-box">
@@ -51,7 +51,7 @@
                         } else {
                             //imagem disponivel
                         ?>
-                            <img src="<?php echo SITEURL; ?>images/produtos/<?php echo $image_name; ?>" alt="<?php echo $title; ?>" class="img-responsive img-curve">
+                            <img src="<?php echo SITEURL; ?>images/produtos/<?php echo $image_name; ?>" alt="<?php echo $titulo; ?>" class="img-responsive img-curve">
                         <?php
                         }
 
@@ -59,10 +59,10 @@
                     </div>
 
                     <div class="food-menu-desc">
-                        <h4><?php echo $title; ?></h4>
-                        <p class="food-price">$<?php echo $price; ?></p>
+                        <h4><?php echo $titulo; ?></h4>
+                        <p class="food-price">$<?php echo $preco; ?></p>
                         <p class="food-detail">
-                            <?php echo $description; ?>
+                            <?php echo $descricao; ?>
                         </p>
                         <br>
 

@@ -3,13 +3,13 @@
 <!-- CAtegories Section Starts Here -->
 <section class="categories">
     <div class="container">
-        <h2 class="text-center">Explore Foods</h2>
+        <h2 class="text-center">Explore os Produtos</h2>
 
         <?php
 
         /// mostar todas as categorias 
         // consulta sql
-        $sql = "SELECT * FROM tbl_category WHERE active='Yes'";
+        $sql = "SELECT * FROM tbl_categoria WHERE ativo='Yes'";
 
         // executar a consulta
         $res = mysqli_query($conn, $sql);
@@ -25,10 +25,10 @@
 
                 //obter os valores 
                 $id = $row['id'];
-                $title = $row['title'];
+                $titulo = $row['titulo'];
                 $image_name = $row['image_name'];
         ?>
-            <a href="<?php echo SITEURL; ?>categoria-produto.php?category_id=<?php echo $id; ?>">
+            <a href="<?php echo SITEURL; ?>categoria-produto.php?categoria_id=<?php echo $id; ?>">
                 <div class="box-3 float-container">
                     <?php
                     if($image_name=="")
@@ -45,7 +45,7 @@
                         <?php
                     }
                     ?>
-                    <h3 class="float-text text-white"><?php echo $title; ?></h3>
+                    <h3 class="float-text text-white"><?php echo $titulo; ?></h3>
                 </div>
             </a>
 

@@ -24,7 +24,7 @@ if (isset($_SESSION['order'])) {
 
         <?php
         //criar uma consulta sql para mostrar os dados da categoria
-        $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 3";
+        $sql = "SELECT * FROM tbl_categoria WHERE ativo='Yes' AND destaque='Yes' LIMIT 3";
 
         // Execute a Query
         $res = mysqli_query($conn, $sql);
@@ -39,10 +39,10 @@ if (isset($_SESSION['order'])) {
             while ($row = mysqli_fetch_assoc($res)) {
                 //Obter os valores
                 $id = $row['id'];
-                $title = $row['title'];
+                $titulo = $row['titulo'];
                 $image_name = $row['image_name'];
         ?>
-                <a href="<?php echo SITEURL; ?>categoria-produto.php?category_id=<?php echo $id; ?>">
+                <a href="<?php echo SITEURL; ?>categoria-produto.php?categoria_id=<?php echo $id; ?>">
                     <div class="box-3 float-container">
                         <?php
                         // Verificar se a imagem esta disponivel ou não
@@ -59,7 +59,7 @@ if (isset($_SESSION['order'])) {
                         ?>
 
 
-                        <h3 class="float-text text-white"><?php echo $title; ?></h3>
+                        <h3 class="float-text text-white"><?php echo $titulo; ?></h3>
                     </div>
                 </a>
 
@@ -68,7 +68,7 @@ if (isset($_SESSION['order'])) {
             }
         } else {
             //Categoria não adicionada
-            echo " <div class='error'>Category não adicionada</div>";
+            echo " <div class='error'>Categoria não adicionada</div>";
         }
         ?>
 
@@ -86,7 +86,7 @@ if (isset($_SESSION['order'])) {
         <?php
         //pegando os produtos da tabela no banco de dados 
         //consultar banco de dados
-        $sql2 = "SELECT * FROM tbl_produto WHERE active='Yes' AND feature='Yes' LIMIT 6";
+        $sql2 = "SELECT * FROM tbl_produto WHERE ativo='Yes' AND destaque='Yes' LIMIT 6";
 
         $res2 = mysqli_query($conn, $sql2);
 
@@ -100,9 +100,9 @@ if (isset($_SESSION['order'])) {
             while ($row = mysqli_fetch_assoc($res2)) {
                 //obter todos os valores
                 $id = $row['id'];
-                $title = $row['title'];
-                $price = $row['price'];
-                $description = $row['description'];
+                $titulo = $row['titulo'];
+                $preco = $row['preco'];
+                $descricao = $row['descricao'];
                 $image_name = $row['image_name'];
         ?>
 
@@ -125,10 +125,10 @@ if (isset($_SESSION['order'])) {
                     </div>
 
                     <div class="food-menu-desc">
-                        <h4><?php echo $title; ?></h4>
-                        <p class="food-price">$<?php echo $price; ?></p>
+                        <h4><?php echo $titulo; ?></h4>
+                        <p class="food-price">$<?php echo $preco; ?></p>
                         <p class="food-detail">
-                            <?php echo $description; ?>
+                            <?php echo $descricao; ?>
                         </p>
                         <br>
 
@@ -144,7 +144,7 @@ if (isset($_SESSION['order'])) {
             }
         } else {
             //Produto não disponivel
-            echo " <div class='error'>Category não adicionada</div>";
+            echo " <div class='error'>Categoria não adicionada</div>";
         }
 
         ?>

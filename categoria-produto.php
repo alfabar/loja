@@ -2,12 +2,12 @@
 
 <?php
 //Verificar se o id foi pasado ou não
-if(isset($_GET['category_id']))
+if(isset($_GET['categoria_id']))
 {
     //o id da categoria e obtido
-    $category_id = $_GET['category_id'];
+    $categoria_id = $_GET['categoria_id'];
     // pegar a o titulo da categoria 
-    $sql = "SELECT title FROM tbl_category WHERE id=$category_id";
+    $sql = "SELECT titulo FROM tbl_categoria WHERE id=$categoria_id";
 
     //Executar a consulta
     $res = mysqli_query($conn, $sql);
@@ -18,7 +18,7 @@ if(isset($_GET['category_id']))
 
     //Pegar o titulo
 
-    $category_title = $row['title'];
+    $categoria_titulo = $row['titulo'];
 }
 else
 {
@@ -34,7 +34,7 @@ else
     <section class="food-search text-center">
         <div class="container">
             
-            <h2>Produtos de <a href="#" class="text-white">"<?php echo $category_title; ?>"</a></h2>
+            <h2>Produtos de <a href="#" class="text-white">"<?php echo $categoria_titulo; ?>"</a></h2>
 
         </div>
     </section>
@@ -51,7 +51,7 @@ else
 
 
             //Criar Consulta Sql para obter os produtos com base na categoria selecionada
-            $sql2 = "SELECT * FROM tbl_food WHERE category_id=$category_id";
+            $sql2 = "SELECT * FROM tbl_produto WHERE categoria_id=$categoria_id";
 
             //executar a consulta 
             $res2 = mysqli_query($conn, $sql2);
@@ -66,9 +66,9 @@ else
                 while($row2=mysqli_fetch_assoc($res2))
                 {
                     $id = $row2['id'];
-                    $title = $row2['title'];
-                    $price = $row2['price'];
-                    $description = $row2['description'];
+                    $titulo = $row2['titulo'];
+                    $preco = $row2['preco'];
+                    $descricao = $row2['descricao'];
                     $image_name = $row2['image_name'];
                     ?>
                      <div class="food-menu-box">
@@ -84,7 +84,7 @@ else
                                         {
                                             //imagem disponivel
                                             ?>
-                                            <img src="<?php echo SITEURL; ?>images/produtos/<?php echo $image_name; ?>" alt="<?php echo $title; ?>" class="img-responsive img-curve">
+                                            <img src="<?php echo SITEURL; ?>images/produtos/<?php echo $image_name; ?>" alt="<?php echo $titulo; ?>" class="img-responsive img-curve">
                                             <?php
                                         }
                                     
@@ -92,13 +92,13 @@ else
                                    
                                 </div>
                         <div class="food-menu-desc">
-                            <h4><?php echo $title; ?></h4>
-                            <p class="food-price">$<?php echo $price; ?></p>
+                            <h4><?php echo $titulo; ?></h4>
+                            <p class="food-price">$<?php echo $preco; ?></p>
                             <p class="food-detail">
-                                <?php echo $description; ?>
+                                <?php echo $descricao; ?>
                             </p>
                             <br>
-                            <a href="<?php echo SITEURL; ?>pedidos.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Pedir Agora</a>
+                            <a href="<?php echo SITEURL; ?>pedidos.php?produto_id=<?php echo $id; ?>" class="btn btn-primary">Pedir Agora</a>
                         </div>
                     </div>
 

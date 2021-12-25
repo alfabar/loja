@@ -31,7 +31,7 @@
 
         //SQL query para obter os produtos baseado na procura
         //SELECT
-        $sql = "SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
+        $sql = "SELECT * FROM tbl_produto WHERE titulo LIKE '%$search%' OR descricao LIKE '%$search%'";
 
         //Executar a query
         $res = mysqli_query($conn, $sql);
@@ -46,9 +46,9 @@
             while ($row = mysqli_fetch_assoc($res)) {
                 //Pegar os valores 
                 $id = $row['id'];
-                $title = $row['title'];
-                $price = $row['price'];
-                $description = $row['description'];
+                $titulo = $row['titulo'];
+                $preco = $row['preco'];
+                $descricao = $row['descricao'];
                 $image_name = $row['image_name'];
 
         ?>
@@ -65,7 +65,7 @@
                          {
                             //imagem disponivel
                         ?>
-                            <img src="<?php echo SITEURL; ?>images/produtos/<?php echo $image_name; ?>" alt="<?php echo $title; ?>" class="img-responsive img-curve">
+                            <img src="<?php echo SITEURL; ?>images/produtos/<?php echo $image_name; ?>" alt="<?php echo $titulo; ?>" class="img-responsive img-curve">
                         <?php
                         }
 
@@ -73,10 +73,10 @@
                     </div>
 
                     <div class="food-menu-desc">
-                        <h4><?php echo $title; ?></h4>
-                        <p class="food-price">$<?php echo $price; ?></p>
+                        <h4><?php echo $titulo; ?></h4>
+                        <p class="food-price">$<?php echo $preco; ?></p>
                         <p class="food-detail">
-                            <?php echo $description; ?>
+                            <?php echo $descricao; ?>
                         </p>
                         <br>
 
